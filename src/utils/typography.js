@@ -1,5 +1,5 @@
-import Typography from "typography"
+import Typography from 'typography';
 
-const typography = new Typography({ baseFontSize: "16px" })
+const typography = new Typography({ baseFontSize: '16px' });
 
-export default typography
+export default typography;

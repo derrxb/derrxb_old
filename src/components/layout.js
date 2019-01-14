@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from './header'
+import Header from './header';
 
 const Wrapper = styled.div`
   margin: 0;
@@ -37,20 +37,16 @@ const Layout = ({ children }) => (
       <Wrapper>
         <Header siteTitle={data.site.siteMetadata.title} />
 
-        <Body>
-          {children}
-        </Body>
+        <Body>{children}</Body>
 
-        <Footer>
-          © 2018 Derrick Bol
-        </Footer>
+        <Footer>© 2018 Derrick Bol</Footer>
       </Wrapper>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
