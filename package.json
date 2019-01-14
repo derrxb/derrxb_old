@@ -1,7 +1,7 @@
 {
-  "name": "Cavings",
+  "name": "starter",
   "private": true,
-  "description": "A simple website to get started with Gatsby",
+  "description": "A default gatsby starter project",
   "version": "0.1.0",
   "author": "Derrick Bol <derrickbol33@gmail.com>",
   "dependencies": {
