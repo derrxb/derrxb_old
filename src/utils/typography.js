@@ -1,5 +1,6 @@
 import Typography from 'typography';
+import oceanBeachTheme from 'typography-theme-ocean-beach';
 
-const typography = new Typography({ baseFontSize: '16px' });
+const typography = new Typography(oceanBeachTheme);
 
 export default typography;
