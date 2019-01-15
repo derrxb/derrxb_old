@@ -53,8 +53,10 @@
     "eslint-plugin-react-hooks": "^0.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
+    "jest-dom": "^3.0.0",
     "prettier": "^1.15.3",
-    "react-test-renderer": "^16.7.0"
+    "react-test-renderer": "^16.7.0",
+    "react-testing-library": "^5.4.4"
   },
   "repository": {
     "type": "git",
