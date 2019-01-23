@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `BZE Tours`,
-    description: `Tours, shuttles, and group packages at affordable prices in Belize.`,
+    title: `Gatsby Starter - Derrxb`,
+    description: `A starter gatsby project`,
     author: `@derrxb`,
   },
   plugins: [
