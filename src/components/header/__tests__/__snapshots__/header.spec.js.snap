@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Spec renders correctly 1`] = `
+<nav
+  className="sc-bdVaJa fcNdJV"
+>
+  <a
+    className="sc-bwzfXH feDAcW"
+    href="/"
+  >
+    
+  </a>
+</nav>
+`;
