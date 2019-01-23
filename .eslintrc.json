@@ -1,0 +1,32 @@
+{
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "extends": ["airbnb", "prettier", "react-app", "plugin:prettier/recommended"],
+  "plugins": ["prettier", "react-hooks"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "jsx-a11y/href-no-hash": [0],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "react-hooks/rules-of-hooks": "error",
+    "no-confusing-arrow": ["error", {
+      "allowParens": true
+    }],
+    "jsx-a11y/anchor-is-valid": ["error", {
+      "components": ["Link"],
+      "specialLink": ["to"]
+    }],
+    "jsx-a11y/label-has-for": [2, {
+      "components": ["Label"],
+      "required": {
+        "every": ["id"]
+      },
+      "allowChildren": false
+    }]
+  }
+}
