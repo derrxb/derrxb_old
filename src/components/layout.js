@@ -12,14 +12,15 @@ const Wrapper = styled.div`
 `;
 
 const Body = styled.div`
-  margin: 0 auto;
-  padding: 0 5rem;
+  margin: 1em 5em;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
 const Footer = styled.div`
   width: 100%;
-  padding: 0 calc(100% - 90%) 0 calc(100% - 90%);
+  padding: 0 5em;
 `;
 
 const Layout = ({ children }) => (
