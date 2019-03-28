@@ -2,13 +2,35 @@
 
 exports[`Header Spec renders correctly 1`] = `
 <nav
-  className="sc-bdVaJa fcNdJV"
+  className="sc-EHOje jQwEIl"
 >
   <a
-    className="sc-bwzfXH feDAcW"
+    className="sc-bZQynM jxOFri"
     href="/"
   >
     
   </a>
+  <button
+    className="sc-htpNat isqSXa"
+    onClick={[Function]}
+  >
+    Menu
+  </button>
+  <div
+    className="sc-bdVaJa iORtBj"
+  >
+    <a
+      className="sc-bwzfXH dVvytM"
+      href="/blog"
+    >
+      Blog
+    </a>
+    <a
+      className="sc-bwzfXH dVvytM"
+      href="/contact-us"
+    >
+      Book
+    </a>
+  </div>
 </nav>
 `;

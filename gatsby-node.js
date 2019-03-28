@@ -23,11 +23,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // **Note:** The graphql function call returns a Promise
-  graphql(`
+  await graphql(`
     {
       allMarkdownRemark {
         edges {

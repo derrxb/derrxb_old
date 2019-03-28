@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavModal Specs renders the modal on > desktop correctly 1`] = `
+<div
+  className="sc-bdVaJa iORtBj"
+>
+  <a
+    className="sc-bwzfXH dVvytM"
+    href="/blog"
+  >
+    Blog
+  </a>
+  <a
+    className="sc-bwzfXH dVvytM"
+    href="/contact-us"
+  >
+    Book
+  </a>
+</div>
+`;
