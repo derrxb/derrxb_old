@@ -116,6 +116,10 @@ const NavMobile = () => {
                 <li>
                   <NavOption to="/book">Book Session</NavOption>
                 </li>
+
+                <li>
+                  <NavOption to="/about">About</NavOption>
+                </li>
               </NavDropdownWrapper>
             </Modal>
           )}

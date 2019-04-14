@@ -43,6 +43,12 @@ exports[`Header Spec renders correctly 1`] = `
     >
       Book
     </a>
+    <a
+      className="sc-bwzfXH dVvytM"
+      href="/about"
+    >
+      About
+    </a>
   </div>
 </nav>
 `;
