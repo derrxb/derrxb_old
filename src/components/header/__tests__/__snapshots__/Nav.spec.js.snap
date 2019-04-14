@@ -28,5 +28,11 @@ exports[`NavModal Specs renders the modal on > desktop correctly 1`] = `
   >
     Book
   </a>
+  <a
+    className="sc-bwzfXH dVvytM"
+    href="/about"
+  >
+    About
+  </a>
 </div>
 `;

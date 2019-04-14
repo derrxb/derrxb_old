@@ -40,6 +40,7 @@ const NavLaptop = () => (
     <NavOption to="/blog">Blog</NavOption>
     <NavOption to="/photography">Photography</NavOption>
     <NavOption to="/book">Book</NavOption>
+    <NavOption to="/about">About</NavOption>
   </NavMenu>
 );
 
