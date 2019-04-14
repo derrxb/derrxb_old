@@ -36,8 +36,10 @@ export const NavOption = styled(Link)`
 
 const NavLaptop = () => (
   <NavMenu>
+    <NavOption to="/">Home</NavOption>
     <NavOption to="/blog">Blog</NavOption>
-    <NavOption to="/book">Book Session</NavOption>
+    <NavOption to="/photography">Photography</NavOption>
+    <NavOption to="/book">Book</NavOption>
   </NavMenu>
 );
 

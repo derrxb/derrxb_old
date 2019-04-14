@@ -11,7 +11,7 @@ exports[`Header Spec renders correctly 1`] = `
     
   </a>
   <button
-    className="sc-htpNat isqSXa"
+    className="sc-htpNat PzwZx"
     onClick={[Function]}
   >
     Menu
@@ -21,13 +21,25 @@ exports[`Header Spec renders correctly 1`] = `
   >
     <a
       className="sc-bwzfXH dVvytM"
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      className="sc-bwzfXH dVvytM"
       href="/blog"
     >
       Blog
     </a>
     <a
       className="sc-bwzfXH dVvytM"
-      href="/contact-us"
+      href="/photography"
+    >
+      Photography
+    </a>
+    <a
+      className="sc-bwzfXH dVvytM"
+      href="/book"
     >
       Book
     </a>

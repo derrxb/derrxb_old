@@ -6,13 +6,25 @@ exports[`NavModal Specs renders the modal on > desktop correctly 1`] = `
 >
   <a
     className="sc-bwzfXH dVvytM"
+    href="/"
+  >
+    Home
+  </a>
+  <a
+    className="sc-bwzfXH dVvytM"
     href="/blog"
   >
     Blog
   </a>
   <a
     className="sc-bwzfXH dVvytM"
-    href="/contact-us"
+    href="/photography"
+  >
+    Photography
+  </a>
+  <a
+    className="sc-bwzfXH dVvytM"
+    href="/book"
   >
     Book
   </a>
