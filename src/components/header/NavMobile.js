@@ -6,7 +6,7 @@ import Media from '../shared/Media';
 import { NavOption } from './NavLaptop';
 
 const MenuLauncher = styled.button`
-  background: #ff9e00;
+  background: #ffae01;
   color: black;
   border-radius: 3px;
   font-size: 12px;
@@ -28,7 +28,7 @@ const MenuLauncher = styled.button`
 const NavDropdownHeader = styled.li`
   display: flex !important;
   align-items: center;
-  background: #2d67a7 !important;
+  background: #ffae01 !important;
   h4 {
     color: white;
     margin: 0;
@@ -102,7 +102,15 @@ const NavMobile = () => {
                 </NavDropdownHeader>
 
                 <li>
+                  <NavOption to="/">Home</NavOption>
+                </li>
+
+                <li>
                   <NavOption to="/blog">Blog</NavOption>
+                </li>
+
+                <li>
+                  <NavOption to="/photography">Photography</NavOption>
                 </li>
 
                 <li>

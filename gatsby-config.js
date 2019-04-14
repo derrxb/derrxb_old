@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter - Derrxb`,
+    title: `Derrxb`,
     description: `A starter gatsby project`,
     author: `@derrxb`,
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystewm`,
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
