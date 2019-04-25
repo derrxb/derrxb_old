@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       const slug = createFilePath({ node, getNode, basePath: `/pages` });
 
       if (node.frontmatter.template === 'photography-session') {
-        console.log(node);
+        // console.log(node);
       }
 
       createNodeField({
