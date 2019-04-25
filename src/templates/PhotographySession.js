@@ -93,7 +93,7 @@ export const photographyQuery = graphql`
         images {
           image {
             childImageSharp {
-              fixed(width: 480, height: 480, quality: 80) {
+              fixed(quality: 80) {
                 ...GatsbyImageSharpFixed
               }
               original {
