@@ -1,0 +1,62 @@
+{
+  "images": [{
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-01.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-02.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-03.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-04.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-05.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-06.jpg"
+    }, {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-07.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-08.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-11.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-12.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-09.jpg"
+    },
+    {
+      "title": "cahal-pech-maya-ruins",
+      "type": "photograph-session",
+      "image": "./images/cahal-pech-10.jpg"
+    }
+  ]
+}

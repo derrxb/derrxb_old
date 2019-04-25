@@ -1,9 +1,9 @@
 ---
 date: April 20, 2019
 location: Cayo, Belize
-path: /pine-ridge-forest-reserve
+path: /mountain-pine-ridge-forest-reserve
 template: photography-session
-title: Pine Ridge Forest Reserve
+title: Mountain Pine Ridge Forest Reserve
 type: photography-session
 emoji: 🌲
 ---

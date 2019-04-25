@@ -21,8 +21,12 @@ const IndexPage = ({ data }) => (
       <h3>Hi. I build things and take pictures.</h3>
       <Image fixed={data.image.childImageSharp.fixed} />
 
-      <Link style={{ marginTop: '2em' }} to="/pine-ridge-forest-reserve">
+      <Link style={{ marginTop: '2em' }} to="/mountain-pine-ridge-forest-reserve">
         Check out my Mountain Pine Ridge story!
+      </Link>
+
+      <Link style={{ marginTop: '2em' }} to="/cahal-pech-maya-ruins">
+        Check out my Cahal Pech story!
       </Link>
     </div>
   </Layout>
