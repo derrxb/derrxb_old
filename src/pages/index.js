@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { RecentBlogsList, StyledLink } from './photography';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -18,16 +19,21 @@ const IndexPage = ({ data }) => (
         alignItems: 'center',
       }}
     >
-      <h3>Hi. I build things and take pictures.</h3>
-      <Image fixed={data.image.childImageSharp.fixed} />
+      <h2>Hi! I build things and take pictures.</h2>
 
-      <Link style={{ marginTop: '2em' }} to="/mountain-pine-ridge-forest-reserve">
-        Check out my Mountain Pine Ridge story!
-      </Link>
+      <h3>Recent</h3>
 
-      <Link style={{ marginTop: '2em' }} to="/cahal-pech-maya-ruins">
-        Check out my Cahal Pech story!
-      </Link>
+      <RecentBlogsList>
+        <li>
+          <StyledLink to="/mountain-pine-ridge-forest-reserve">
+            A day in the beautiful Mountain Pine Ridge
+          </StyledLink>
+        </li>
+
+        <li>
+          <StyledLink to="/cahal-pech-maya-ruins">Cahal Pech Maya Ruins</StyledLink>
+        </li>
+      </RecentBlogsList>
     </div>
   </Layout>
 );
@@ -37,17 +43,5 @@ IndexPage.defaultProps = {
     image: PropTypes.object.isRequired,
   }).isRequired,
 };
-
-export const indexQuery = graphql`
-  query {
-    image: file(relativePath: { eq: "cahal-pech-01.jpg" }) {
-      childImageSharp {
-        fixed(width: 420, height: 600, quality: 90) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;

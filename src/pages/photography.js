@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   font-weight: 500;
   font-size: 1.1em;
   color: rgb(0, 32, 66);
@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const RecentBlogsList = styled.ul`
+export const RecentBlogsList = styled.ul`
   margin: 0;
   list-style: none;
 `;
@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`belize photography`, `explore belize`]} />
 
-    <h1>Recent</h1>
+    <h1 style={{ marginTop: '0.5em' }}>Recent</h1>
 
     <RecentBlogsList>
       <li>
