@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -18,8 +18,12 @@ const IndexPage = ({ data }) => (
         alignItems: 'center',
       }}
     >
-      <h3>Hi, I build things</h3>
+      <h3>Hi. I build things and take pictures.</h3>
       <Image fixed={data.image.childImageSharp.fixed} />
+
+      <Link style={{ marginTop: '2em' }} to="/pine-ridge-forest-reserve">
+        Check out my Mountain Pine Ridge story!
+      </Link>
     </div>
   </Layout>
 );
