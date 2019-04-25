@@ -13,14 +13,30 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    if (node.frontmatter.template) {
+      const slug = createFilePath({ node, getNode, basePath: `/pages` });
 
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    });
+      if (node.frontmatter.template === 'photography-session') {
+        console.log(node);
+      }
+
+      createNodeField({
+        node,
+        name: 'slug',
+        value: slug,
+      });
+    }
   }
+};
+
+const getPhotographySessionName = node => {
+  if (node.frontmatter.template === 'photography-session') {
+    // eslint-disable-next-line no-unused-vars
+    const [_, ...sessionName] = node.frontmatter.path;
+    return sessionName.join('');
+  }
+
+  return '';
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -32,6 +48,10 @@ exports.createPages = async ({ graphql, actions }) => {
       allMarkdownRemark {
         edges {
           node {
+            frontmatter {
+              path
+              template
+            }
             fields {
               slug
             }
@@ -41,13 +61,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (node.frontmatter.path == null) {
+        return;
+      }
+
+      let template = './src/templates/';
+      if (node.frontmatter.template === 'photography-session') {
+        template += 'PhotographySession.js';
+      } else {
+        template += 'blogPost.js';
+      }
+
       createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/blogPost.js`),
+        path: node.frontmatter.path,
+        component: path.resolve(template),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           slug: node.fields.slug,
+          photographySession: getPhotographySessionName(node),
         },
       });
     });

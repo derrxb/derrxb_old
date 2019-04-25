@@ -19,6 +19,15 @@ const Body = styled.div`
 
 const Footer = styled.div`
   padding: 0 5em;
+  height: 300px;
+  display: flex;
+`;
+
+const Copyright = styled.span`
+  font-weight: 700;
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 const Layout = ({ children }) => (
@@ -38,7 +47,9 @@ const Layout = ({ children }) => (
 
         <Body>{children}</Body>
 
-        <Footer>© 2018 Derrick Bol</Footer>
+        <Footer>
+          <Copyright>© Derrick Bol</Copyright>
+        </Footer>
       </Wrapper>
     )}
   />

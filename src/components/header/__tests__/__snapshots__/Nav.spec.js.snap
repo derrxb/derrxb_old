@@ -26,7 +26,7 @@ exports[`NavModal Specs renders the modal on > desktop correctly 1`] = `
     className="sc-bwzfXH dVvytM"
     href="/book"
   >
-    Book
+    Book Session
   </a>
   <a
     className="sc-bwzfXH dVvytM"

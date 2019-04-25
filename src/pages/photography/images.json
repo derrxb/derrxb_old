@@ -1,0 +1,62 @@
+{
+  "images": [{
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-01.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-02.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-03.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-04.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-05.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-06.jpg"
+    }, {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-07.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-08.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-09.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-10.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-11.jpg"
+    },
+    {
+      "title": "pine-ridge-forest-reserve",
+      "type": "photograph-session",
+      "image": "./images/pine-ridge-12.jpg"
+    }
+  ]
+}
