@@ -23,7 +23,7 @@ const SiteTitle = styled(Link)`
   color: #444;
   align-self: center;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-right: auto;
 `;
 

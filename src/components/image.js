@@ -1,32 +1,35 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `StaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.app/gatsby-image
- * - `StaticQuery`: https://gatsby.app/staticquery
- */
+const Wrapper = styled.button`
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  display: flex;
+  border: 2px solid white;
 
-const Image = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
-  />
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const Image = ({ photo, ...rest }) => (
+  <Wrapper onClick={e => rest.onClick(e, rest)}>
+    <GatsbyImage fixed={photo} />
+  </Wrapper>
 );
+
+Image.propTypes = {
+  photo: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    base64: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default Image;

@@ -5,7 +5,7 @@ exports[`Header Spec renders correctly 1`] = `
   className="sc-EHOje jQwEIl"
 >
   <a
-    className="sc-bZQynM jxOFri"
+    className="sc-bZQynM lnZZkT"
     href="/"
   >
     
@@ -41,7 +41,7 @@ exports[`Header Spec renders correctly 1`] = `
       className="sc-bwzfXH dVvytM"
       href="/book"
     >
-      Book
+      Book Session
     </a>
     <a
       className="sc-bwzfXH dVvytM"
