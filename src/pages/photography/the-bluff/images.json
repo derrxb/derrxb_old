@@ -1,0 +1,47 @@
+{
+  "images": [{
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-01.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-02.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-03.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-04.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-05.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-06.jpg"
+    }, {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-07.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-08.jpg"
+    },
+    {
+      "title": "the-bluff-belize",
+      "type": "photograph-session",
+      "image": "./images/the-bluff-10.jpg"
+    }
+  ]
+}

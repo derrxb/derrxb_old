@@ -61,7 +61,7 @@ const IndexPage = ({ data: { posts } }) => (
     <SEO title="Home" keywords={[`belize photography`, `explore belize`, `belize`]} />
 
     {posts.nodes.map(post => (
-      <React.Fragment>
+      <React.Fragment key={post.frontmatter.title}>
         <Session key={post.frontmatter.title} to={post.frontmatter.path}>
           <Image fixed={post.frontmatter.previewImage.childImageSharp.fixed} />
           <Heading>{post.frontmatter.title}</Heading>

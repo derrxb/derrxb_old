@@ -19,6 +19,16 @@ const About = styled.div`
     font-size: 1em;
     margin: 0.5em 0 1em;
   }
+
+  a {
+    text-decoration: none;
+    color: rgb(0, 32, 66);
+    font-weight: 550;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const PhotographySession = ({ data }) => {
