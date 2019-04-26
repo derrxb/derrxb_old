@@ -22,7 +22,6 @@ const About = styled.div`
 `;
 
 const PhotographySession = ({ data }) => {
-  console.log(data);
   const images =
     typeof data.images.nodes[0] !== 'undefined' ? data.images.nodes[0].images : [];
   const imagesFormattedForGallery = images.map(c => {
