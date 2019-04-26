@@ -27,18 +27,27 @@ const Session = styled(Link)`
   flex-direction: column;
   width: auto;
   height: auto;
-  padding: 1em;
+  padding: 1.5em 1em;
   overflow: hidden;
   word-wrap: break-word;
   align-items: center;
   align-self: center;
   outline: none;
   text-decoration: none;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px rgba(0, 32, 66, 0.01);
+
+  &:visited {
+    outline: none;
+    color: white;
+  }
 `;
 
 const Heading = styled.h3`
   margin: 0.5em 0 0;
   font-weight: 500;
+  font-size: 1.2em;
 `;
 
 const Emoji = styled.span`
@@ -50,8 +59,6 @@ const Emoji = styled.span`
 const IndexPage = ({ data: { posts } }) => (
   <Layout>
     <SEO title="Home" keywords={[`belize photography`, `explore belize`, `belize`]} />
-
-    <h1 style={{ marginTop: '0.5em' }}>Recent</h1>
 
     {posts.nodes.map(post => (
       <React.Fragment>
