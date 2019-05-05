@@ -3,7 +3,7 @@ date: 2019-04-10
 location: Cayo, Belize
 path: /the-bluff-belize
 template: photography-session
-title: The Bluff with Gabriela & Gabriela
+title: The Bluff
 type: photography-session
 emoji: 🍻
 previewImage: ./images/the-bluff-08.jpg
