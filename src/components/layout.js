@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import ReactModal from 'react-modal';
 import Media from './shared/Media';
 import Header from './header';
+
+ReactModal.setAppElement(document.body);
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,8 +22,16 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
 
+  ${Media.lessThan('laptop')`
+    margin: 1em 2.5em;
+  `};
+
   ${Media.lessThan('tablet')`
     margin: 1em;
+  `};
+
+  ${Media.lessThan('mobile')`
+    margin: 1em 0.5em;
   `};
 `;
 
