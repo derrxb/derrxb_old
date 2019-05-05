@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { RecentBlogsList, StyledLink } from './photography';
+import { RecentBlogsList } from './photography';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -25,13 +24,13 @@ const IndexPage = ({ data }) => (
 
       <RecentBlogsList>
         <li>
-          <StyledLink to="/mountain-pine-ridge-forest-reserve">
+          <Link to="/mountain-pine-ridge-forest-reserve">
             A day in the beautiful Mountain Pine Ridge
-          </StyledLink>
+          </Link>
         </li>
 
         <li>
-          <StyledLink to="/cahal-pech-maya-ruins">Cahal Pech Maya Ruins</StyledLink>
+          <Link to="/cahal-pech-maya-ruins">Cahal Pech Maya Ruins</Link>
         </li>
       </RecentBlogsList>
     </div>
