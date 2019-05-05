@@ -9,4 +9,4 @@ emoji: 🌲
 previewImage: ./images/pine-ridge-07.jpg
 ---
 
-Mountain Pine Ridge (MPR) is one of my favorite places in Belize. There is so much to see and gaze at.
+Mountain Pine Ridge (MPR) is one of my favorite places in Belize. Hopefully these photos help you see why that's the case.

@@ -9,8 +9,8 @@ emoji: ⛺️
 previewImage: ./images/cahal-pech-04.jpg
 ---
 
-Cahal Pech is one of the oldest Maya cities in Belize. People first settled there around 1200 B.C. That is mind-blowing!
+For 2000 years the Ancient Maya lived in the city of Cahal Pech and its periphery. Visiting Cahal Pech made we wonder about what our story will be 2000 years from now. With these images, I wanted to capture the awe of such a thought I experienced on my visit.
 
-Yet, despite its age, it wasn't until about 2 years ago that I visited the site for the first time. This is surprising because I've lived in San Ignacio all my life and Cahal Pech is about 20 minutes away from my house (Don't worry, I've visited multiple times now).
+My favorite is the picture of my friend Nico looking up towards the top of this temple in awe.
 
 This set is from a photo shoot I had with my friend [Nico](https://www.instagram.com/nico.ssuave/). So there is a mix of the beautiful scenery and portraits.
