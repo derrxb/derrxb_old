@@ -6,12 +6,7 @@ import Gallery from 'react-photo-gallery';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
-
-const Header = styled.div`
-  color: #333333;
-  font-size: 1.7em;
-  font-weight: 700;
-`;
+import { H1 } from '../components/shared';
 
 const About = styled.div`
   p {
@@ -53,7 +48,7 @@ const PhotographySession = ({ data }) => {
         keywords={[`belize photography`, `explore belize`, data.main.frontmatter.title]}
       />
 
-      <Header>{`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}</Header>
+      <H1>{`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}</H1>
 
       <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
