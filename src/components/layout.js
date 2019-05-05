@@ -2,11 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactModal from 'react-modal';
 import Media from './shared/Media';
 import Header from './header';
-
-ReactModal.setAppElement(window.document.body);
 
 const Wrapper = styled.div`
   display: flex;
