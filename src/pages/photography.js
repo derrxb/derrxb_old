@@ -5,71 +5,114 @@ import styled from 'styled-components';
 import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-
-export const StyledLink = styled(Link)`
-  font-weight: 500;
-  font-size: 1.1em;
-  color: rgb(0, 32, 66);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+import Media from '../components/shared/Media';
+import { H1 } from '../components/shared';
 
 export const RecentBlogsList = styled.ul`
   margin: 0;
   list-style: none;
 `;
 
-const Session = styled(Link)`
+const Post = styled(Link)`
   display: flex;
   flex-direction: column;
   width: auto;
   height: auto;
-  padding: 1.5em 1em;
   overflow: hidden;
   word-wrap: break-word;
   align-items: center;
   align-self: center;
   outline: none;
   text-decoration: none;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 2px rgba(0, 32, 66, 0.01);
+  box-shadow: 0 0 10px 2px rgba(0, 32, 66, 0.05);
+  transition: box-shadow 0.8s;
+  border-radius: 7px;
+  padding: 0 0 1em 0;
+  margin-bottom: 2em;
 
   &:visited {
     outline: none;
     color: white;
   }
+
+  &:hover {
+    box-shadow: 0 0 10px 4px rgba(0, 32, 66, 0.2);
+    transition: box-shadow 0.4s;
+  }
+
+  ${Media.lessThan('laptop')`
+    width: 360px;
+  `};
 `;
 
-const Heading = styled.h3`
+const Heading = styled.h2`
   margin: 0.5em 0 0;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: 0.8;
   font-size: 1.2em;
+
+  ${Media.lessThan('laptop')`
+    text-align: center;
+  `};
 `;
 
-const Emoji = styled.span`
-  font-size: 1.5em;
-  margin: 0.5em;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
   align-self: center;
+  margin: 0 auto 3em;
+
+  ${Media.greaterThan('largeLaptop')`
+    width: 1000px;
+  `};
+
+  ${Media.lessThan('laptop')`
+    width: 100%;
+    margin: 0;
+  `};
+
+  ${Media.lessThan('tablet')`
+    flex-direction: column;
+  `}
 `;
 
 const IndexPage = ({ data: { posts } }) => (
   <Layout>
     <SEO title="Home" keywords={[`belize photography`, `explore belize`, `belize`]} />
 
-    {posts.nodes.map(post => (
-      <React.Fragment key={post.frontmatter.title}>
-        <Session key={post.frontmatter.title} to={post.frontmatter.path}>
-          <Image fixed={post.frontmatter.previewImage.childImageSharp.fixed} />
-          <Heading>{post.frontmatter.title}</Heading>
-        </Session>
+    <H1>Photography</H1>
+    <p>
+      A collection of my favorite photos from various shenanigans with friends and
+      professional shoots. I hope you enjoy these photos as much as I did taking them.
+    </p>
 
-        <Emoji>{post.frontmatter.emoji}</Emoji>
-      </React.Fragment>
-    ))}
+    {posts.nodes.map((post, index) => {
+      if (index % 2 === 0) {
+        const secondPost = posts.nodes[index + 1];
+
+        return (
+          <Wrapper key={post.frontmatter.title}>
+            <Post key={post.frontmatter.title} to={post.frontmatter.path}>
+              <Image fixed={post.frontmatter.previewImage.childImageSharp.fixed} />
+              <Heading>{`${post.frontmatter.title} ${post.frontmatter.emoji}`}</Heading>
+            </Post>
+
+            {typeof secondPost !== 'undefined' && (
+              <Post key={secondPost.frontmatter.title} to={secondPost.frontmatter.path}>
+                <Image
+                  fixed={secondPost.frontmatter.previewImage.childImageSharp.fixed}
+                />
+                <Heading>
+                  {`${secondPost.frontmatter.title} ${post.frontmatter.emoji}`}
+                </Heading>
+              </Post>
+            )}
+          </Wrapper>
+        );
+      }
+
+      return null;
+    })}
   </Layout>
 );
 
@@ -93,7 +136,7 @@ IndexPage.propTypes = {
 export const indexQuery = graphql`
   query {
     posts: allMarkdownRemark(
-      limit: 5
+      limit: 6
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "photography-session" } } }
     ) {
@@ -104,7 +147,7 @@ export const indexQuery = graphql`
           path
           previewImage {
             childImageSharp {
-              fixed(width: 400, height: 500, quality: 80) {
+              fixed(width: 420, height: 500, quality: 80) {
                 ...GatsbyImageSharpFixed
               }
             }
