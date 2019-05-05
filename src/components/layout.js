@@ -6,7 +6,7 @@ import ReactModal from 'react-modal';
 import Media from './shared/Media';
 import Header from './header';
 
-ReactModal.setAppElement(document.body);
+ReactModal.setAppElement(window.document.body);
 
 const Wrapper = styled.div`
   display: flex;
