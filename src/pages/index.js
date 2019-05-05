@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const IndexPage = ({ data }) => {
-  window.location.assign('/photography');
+  React.useEffect(() => {
+    window.location.assign('/photography');
+  }, []);
+
   return null;
 };
 
