@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import ReactModal from 'react-modal';
 import { StaticQuery, graphql } from 'gatsby';
 import Media from './shared/Media';
 import Header from './header';
+
+typeof window !== 'undefined' &&
+  ReactModal.setAppElement(document.getElementById('___gatsby'));
 
 const Wrapper = styled.div`
   display: flex;
