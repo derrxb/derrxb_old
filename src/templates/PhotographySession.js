@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
 import { H1 } from '../components/shared';
+import LightShow from '../components/LightShow';
 
 const About = styled.div`
   p {
@@ -41,6 +42,13 @@ const PhotographySession = ({ data }) => {
     };
   });
 
+  const [currentItem, setCurrentItem] = React.useState(0);
+  const [showLightShow, setShowLightShow] = React.useState(false);
+  const launchLightShow = index => {
+    setCurrentItem(index);
+    setShowLightShow(true);
+  };
+
   return (
     <Layout>
       <SEO
@@ -55,7 +63,14 @@ const PhotographySession = ({ data }) => {
       <Gallery
         photos={imagesFormattedForGallery}
         renderImage={Image}
-        onClick={() => {}}
+        onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
+      />
+
+      <LightShow
+        isOpen={showLightShow}
+        currentImage={currentItem}
+        images={images}
+        closeLightShow={() => setShowLightShow(false)}
       />
     </Layout>
   );
@@ -98,13 +113,16 @@ export const photographyQuery = graphql`
         images {
           image {
             childImageSharp {
-              fixed(quality: 80) {
+              fixed(quality: 80, width: 480, height: 360) {
                 ...GatsbyImageSharpFixed
               }
               original {
                 width
                 height
                 src
+              }
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
