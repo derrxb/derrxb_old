@@ -41,6 +41,8 @@ const Footer = styled.div`
   height: 300px;
   display: flex;
   margin-top: auto;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Copyright = styled.span`
@@ -68,6 +70,7 @@ const Layout = ({ children }) => (
         <Body>{children}</Body>
 
         <Footer>
+          <Copyright>hello@derrxb.com</Copyright>
           <Copyright>© Derrick Bol</Copyright>
         </Footer>
       </Wrapper>
