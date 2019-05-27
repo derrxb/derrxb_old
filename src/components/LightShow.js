@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTransition, animated } from 'react-spring';
 import useKey from 'react-use/lib/useKey';
-import { MdClose } from 'react-icons/md';
+import { MdClose, MdChevronRight, MdChevronLeft } from 'react-icons/md';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const CloseIcon = styled(MdClose)`
-  font-size: 1.9em;
+  font-size: 1.8em;
   border-radius: 4px;
   margin: auto 1em auto auto;
   position: absolute;
@@ -28,38 +28,83 @@ const CloseIcon = styled(MdClose)`
   right: -15px;
 
   &:hover {
-    background: #ddd;
+    background: #dee5e5;
     transition: all 0.2s;
   }
+`;
+
+const ArrowWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  top: 45vh;
+
+  &:hover {
+    background: #ddd;
+  }
+`;
+
+const LeftArrow = styled(ArrowWrapper)`
+  position: absolute;
+  margin-left: 1em;
+`;
+
+const RightArrow = styled(ArrowWrapper)`
+  position: absolute;
+  right: 0;
+  margin-right: 1em;
+`;
+
+const Arrow = styled.div`
+  font-size: 2em;
 `;
 
 const initialState = {
   isOpen: false,
   currentImage: 0,
+  images: 0,
 };
 
 const lightShowReducer = (state, action) => {
   switch (action.type) {
-    case 'NEXT_IMAGE': {
+    case 'NEXT_IMAGE':
       return {
         ...state,
-        currentImage: action.payload,
+        currentImage: (state.currentImage + 1) % state.images.length,
       };
-    }
+    case 'PREV_IMAGE':
+      return {
+        ...state,
+        currentImage:
+          (state.currentImage - 1 + state.images.length) % state.images.length,
+      };
+    case 'RESET':
+      return initialState;
     default:
       throw new Error(`Unknown Action: ${action.type}`);
   }
 };
 
-const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
+const useLightShow = (images, options) => {
   const [state, dispatch] = React.useReducer(lightShowReducer, {
     ...initialState,
-    isOpen,
-    currentImage,
+    ...options,
+    images,
   });
 
+  return [state, dispatch];
+};
+
+const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
+  const [state, dispatch] = useLightShow(images, { isOpen, currentImage });
+
   const transitions = useTransition(isOpen, null, {
-    from: { position: 'fixed', opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+    from: { position: 'fixed', opacity: 0, transform: 'translate3d(0, 0, 0)' },
     enter: {
       opacity: 1,
       background: 'white',
@@ -68,23 +113,44 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
       top: '0',
       left: '0',
       overflow: 'hidden',
-      transform: 'translate3d(0,0,0)',
+      transform: 'translate3d(0,0,100%)',
     },
-    leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
+    leave: { opacity: 0, transform: 'translate3d(0,0,0)' },
   });
 
-  useKey('Escape', () => {
+  const close = () => {
+    dispatch({ type: 'RESET' });
     closeLightShow();
-  });
+  };
+  const goToPrev = () => dispatch({ type: 'PREV_IMAGE' });
+  const goToNext = () => dispatch({ type: 'NEXT_IMAGE' });
+
+  useKey('Escape', close);
+  useKey('ArrowLeft', () => goToPrev());
+  useKey('ArrowRight', () => goToNext());
+
+  if (!isOpen) {
+    return null;
+  }
 
   return transitions.map(({ item, key, props }) =>
     item ? (
       <animated.div style={props} key={key}>
         <Wrapper>
-          <CloseIcon onClick={closeLightShow} />
+          <CloseIcon onClick={close} />
+
+          <LeftArrow onClick={goToPrev}>
+            <Arrow as={MdChevronLeft} />
+          </LeftArrow>
+
+          <RightArrow onClick={goToNext}>
+            <Arrow as={MdChevronRight} />
+          </RightArrow>
+
           <img
-            src={images[currentImage].image.childImageSharp.original.src}
-            style={{ margin: 'auto', maxHeight: 'calc(100vh - 140px)' }}
+            alt="light-box"
+            src={images[state.currentImage].image.childImageSharp.original.src}
+            style={{ margin: 'auto', maxHeight: 'calc(100vh - 180px)' }}
           />
         </Wrapper>
       </animated.div>
