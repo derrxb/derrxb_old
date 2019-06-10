@@ -71,6 +71,9 @@ const initialState = {
 };
 
 const lightShowReducer = (state, action) => {
+  window.console.log('Action: ', action);
+  window.console.log('State: ', state);
+
   switch (action.type) {
     case 'NEXT_IMAGE':
       return {
@@ -97,11 +100,21 @@ const useLightShow = (images, options) => {
     images,
   });
 
-  return [state, dispatch];
+  const next = () => dispatch({ type: useLightShow.types.next });
+  const prev = () => dispatch({ type: useLightShow.types.prev });
+  const reset = () => dispatch({ type: useLightShow.types.reset });
+
+  return { state, next, prev, reset };
+};
+
+useLightShow.types = {
+  next: 'NEXT_IMAGE',
+  prev: 'PREV_IMAGE',
+  reset: 'RESET',
 };
 
 const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
-  const [state, dispatch] = useLightShow(images, { isOpen, currentImage });
+  const { state, next, prev, reset } = useLightShow(images, { isOpen, currentImage });
 
   const transitions = useTransition(isOpen, null, {
     from: { position: 'fixed', opacity: 0, transform: 'translate3d(0, 0, 0)' },
@@ -119,15 +132,13 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
   });
 
   const close = () => {
-    dispatch({ type: 'RESET' });
+    reset();
     closeLightShow();
   };
-  const goToPrev = () => dispatch({ type: 'PREV_IMAGE' });
-  const goToNext = () => dispatch({ type: 'NEXT_IMAGE' });
 
   useKey('Escape', close);
-  useKey('ArrowLeft', () => goToPrev());
-  useKey('ArrowRight', () => goToNext());
+  useKey('ArrowLeft', () => prev());
+  useKey('ArrowRight', () => next());
 
   if (!isOpen) {
     return null;
@@ -139,11 +150,11 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
         <Wrapper>
           <CloseIcon onClick={close} />
 
-          <LeftArrow onClick={goToPrev}>
+          <LeftArrow onClick={prev}>
             <Arrow as={MdChevronLeft} />
           </LeftArrow>
 
-          <RightArrow onClick={goToNext}>
+          <RightArrow onClick={next}>
             <Arrow as={MdChevronRight} />
           </RightArrow>
 
