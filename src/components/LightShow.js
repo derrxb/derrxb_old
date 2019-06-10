@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTransition, animated } from 'react-spring';
 import useKey from 'react-use/lib/useKey';
+import Image from 'gatsby-image';
 import { MdClose, MdChevronRight, MdChevronLeft } from 'react-icons/md';
 
 const Wrapper = styled.div`
@@ -16,6 +17,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background: transparent;
+  align-items: center;
+  justify-content: center;
 `;
 
 const CloseIcon = styled(MdClose)`
@@ -26,6 +29,7 @@ const CloseIcon = styled(MdClose)`
   top: 0.5em;
   left: 95%;
   right: -15px;
+  z-index: 100;
 
   &:hover {
     background: #dee5e5;
@@ -43,6 +47,7 @@ const ArrowWrapper = styled.button`
   border: none;
   border-radius: 4px;
   top: 45vh;
+  z-index: 100;
 
   &:hover {
     background: #ddd;
@@ -52,6 +57,7 @@ const ArrowWrapper = styled.button`
 const LeftArrow = styled(ArrowWrapper)`
   position: absolute;
   margin-left: 1em;
+  left: 0;
 `;
 
 const RightArrow = styled(ArrowWrapper)`
@@ -62,6 +68,16 @@ const RightArrow = styled(ArrowWrapper)`
 
 const Arrow = styled.div`
   font-size: 2em;
+`;
+
+const ImageWrapper = styled.div`
+  max-width: 800px;
+  width: 100%;
+
+  & > img {
+    object-fit: cover !important;
+    object-position: 0% 0% !important;
+  }
 `;
 
 const initialState = {
@@ -114,6 +130,22 @@ useLightShow.types = {
   reset: 'RESET',
 };
 
+const NonStretchedImage = props => {
+  let normalizedProps = props;
+  if (props.fluid && props.fluid.presentationWidth) {
+    normalizedProps = {
+      ...props,
+      style: {
+        ...(props.style || {}),
+        maxWidth: props.fluid.presentationWidth,
+        margin: '0 auto', // Used to center the image
+      },
+    };
+  }
+
+  return <Image {...normalizedProps} />;
+};
+
 const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
   const { state, next, prev, reset } = useLightShow(images, { isOpen, currentImage });
 
@@ -159,11 +191,22 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
             <Arrow as={MdChevronRight} />
           </RightArrow>
 
-          <img
+          <ImageWrapper>
+            <Image
+              fluid={images[state.currentImage].image.childImageSharp.fluid}
+              style={{
+                margin: 'auto',
+                // maxHeight: 'calc(100vh - 180px)',
+                transform: 'scale(0.8)',
+              }}
+            />
+          </ImageWrapper>
+
+          {/* <img
             alt="light-box"
             src={images[state.currentImage].image.childImageSharp.original.src}
             style={{ margin: 'auto', maxHeight: 'calc(100vh - 180px)' }}
-          />
+          /> */}
         </Wrapper>
       </animated.div>
     ) : null
