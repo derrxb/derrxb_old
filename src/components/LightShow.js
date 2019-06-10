@@ -71,23 +71,24 @@ const initialState = {
 };
 
 const lightShowReducer = (state, action) => {
-  window.console.log('Action: ', action);
-  window.console.log('State: ', state);
-
   switch (action.type) {
-    case 'NEXT_IMAGE':
+    case useLightShow.types.next:
       return {
         ...state,
         currentImage: (state.currentImage + 1) % state.images.length,
       };
-    case 'PREV_IMAGE':
+    case useLightShow.types.prev:
       return {
         ...state,
         currentImage:
           (state.currentImage - 1 + state.images.length) % state.images.length,
       };
-    case 'RESET':
-      return initialState;
+    case useLightShow.types.reset:
+      return {
+        ...state,
+        isOpen: false,
+        currentImage: 0,
+      };
     default:
       throw new Error(`Unknown Action: ${action.type}`);
   }
