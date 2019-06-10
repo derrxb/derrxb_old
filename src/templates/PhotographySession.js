@@ -121,7 +121,7 @@ export const photographyQuery = graphql`
                 height
                 src
               }
-              fluid(quality: 100) {
+              fluid(maxWidth: 2000, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
