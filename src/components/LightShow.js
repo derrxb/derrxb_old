@@ -6,6 +6,7 @@ import { useTransition, animated } from 'react-spring';
 import useKey from 'react-use/lib/useKey';
 import Image from 'gatsby-image';
 import { MdClose, MdChevronRight, MdChevronLeft } from 'react-icons/md';
+import Media from './shared/Media';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -47,11 +48,16 @@ const ArrowWrapper = styled.button`
   border: none;
   border-radius: 4px;
   top: 45vh;
-  z-index: 100;
+  z-index: 200;
+  background: none;
 
   &:hover {
     background: #ddd;
   }
+
+  ${Media.lessThan('tablet')`
+    top: 80vh;
+  `};
 `;
 
 const LeftArrow = styled(ArrowWrapper)`
@@ -67,7 +73,7 @@ const RightArrow = styled(ArrowWrapper)`
 `;
 
 const Arrow = styled.div`
-  font-size: 2em;
+  font-size: 2em !important;
 `;
 
 const ImageWrapper = styled.div`
@@ -180,7 +186,7 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
               fluid={images[state.currentImage].image.childImageSharp.fluid}
               style={{
                 margin: 'auto',
-                // maxHeight: 'calc(100vh - 180px)',
+                maxHeight: 'calc(100vh - 180px)',
                 transform: 'scale(0.8)',
               }}
             />
