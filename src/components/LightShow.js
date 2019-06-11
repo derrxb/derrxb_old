@@ -130,22 +130,6 @@ useLightShow.types = {
   reset: 'RESET',
 };
 
-const NonStretchedImage = props => {
-  let normalizedProps = props;
-  if (props.fluid && props.fluid.presentationWidth) {
-    normalizedProps = {
-      ...props,
-      style: {
-        ...(props.style || {}),
-        maxWidth: props.fluid.presentationWidth,
-        margin: '0 auto', // Used to center the image
-      },
-    };
-  }
-
-  return <Image {...normalizedProps} />;
-};
-
 const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
   const { state, next, prev, reset } = useLightShow(images, { isOpen, currentImage });
 
@@ -201,12 +185,6 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
               }}
             />
           </ImageWrapper>
-
-          {/* <img
-            alt="light-box"
-            src={images[state.currentImage].image.childImageSharp.original.src}
-            style={{ margin: 'auto', maxHeight: 'calc(100vh - 180px)' }}
-          /> */}
         </Wrapper>
       </animated.div>
     ) : null
