@@ -103,7 +103,7 @@ const IndexPage = ({ data: { posts } }) => (
                   fixed={secondPost.frontmatter.previewImage.childImageSharp.fixed}
                 />
                 <Heading>
-                  {`${secondPost.frontmatter.title} ${post.frontmatter.emoji}`}
+                  {`${secondPost.frontmatter.title} ${secondPost.frontmatter.emoji}`}
                 </Heading>
               </Post>
             )}
