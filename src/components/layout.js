@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
-  background: rgb(250, 250, 250);
+  background: rgb(256, 256, 256);
 `;
 
 const Body = styled.div`

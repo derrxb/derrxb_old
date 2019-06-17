@@ -80,10 +80,11 @@ const IndexPage = ({ data: { posts } }) => (
   <Layout>
     <SEO title="Home" keywords={[`belize photography`, `explore belize`, `belize`]} />
 
-    <H1>Photography</H1>
+    <H1>PHOTOGRAPHY</H1>
+
     <p>
-      A collection of my favorite photos from various shenanigans with friends and
-      professional shoots. I hope you enjoy these photos as much as I did taking them.
+      A collection of my favorite photos from various shenanigans with friends. I hope you
+      enjoy these photos as much as I did taking them.
     </p>
 
     {posts.nodes.map((post, index) => {

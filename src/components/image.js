@@ -9,7 +9,7 @@ const Wrapper = styled.button`
   outline: 0;
   padding: 0;
   display: flex;
-  border: 2px solid rgb(250, 250, 250);
+  border: 2px solid white;
 
   :hover {
     cursor: pointer;
