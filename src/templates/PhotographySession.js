@@ -60,28 +60,18 @@ const PhotographySession = ({ data }) => {
 
       <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
-      <div
-        style={{
-          maxWidth: '920px',
-          marginRight: 'auto',
-          marginLeft: 'auto',
-          background: 'transparent',
-        }}
-      >
-        <Gallery
-          photos={imagesFormattedForGallery}
-          renderImage={Image}
-          onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
-          style={{ width: '920px' }}
-        />
+      <Gallery
+        photos={imagesFormattedForGallery}
+        renderImage={Image}
+        onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
+      />
 
-        <LightShow
-          isOpen={showLightShow}
-          currentImage={currentItem}
-          images={images}
-          closeLightShow={() => setShowLightShow(false)}
-        />
-      </div>
+      <LightShow
+        isOpen={showLightShow}
+        currentImage={currentItem}
+        images={images}
+        closeLightShow={() => setShowLightShow(false)}
+      />
     </Layout>
   );
 };
@@ -123,10 +113,10 @@ export const photographyQuery = graphql`
         images {
           image {
             childImageSharp {
-              fixed(quality: 100, height: 300) {
+              fixed(quality: 90, height: 400) {
                 ...GatsbyImageSharpFixed
               }
-              fluid(maxWidth: 2000, quality: 100) {
+              fluid(maxWidth: 2000, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
