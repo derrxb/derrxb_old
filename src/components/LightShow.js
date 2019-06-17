@@ -182,10 +182,7 @@ const LightShow = ({ isOpen, currentImage, images, closeLightShow }) => {
           </RightArrow>
 
           <ImageWrapper>
-            <Image
-              fluid={images[state.currentImage].image.childImageSharp.fluid}
-              style={{ margin: 'auto', transform: 'scale(0.8)' }}
-            />
+            <Image fluid={images[state.currentImage].image.childImageSharp.fluid} />
           </ImageWrapper>
         </Wrapper>
       </animated.div>

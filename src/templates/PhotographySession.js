@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
 import { H1 } from '../components/shared';
-import LightShow from '../components/LightShow';
+import LightBox from '../components/LightBox';
 
 const About = styled.div`
   p {
@@ -31,16 +31,20 @@ const PhotographySession = ({ data }) => {
   const images =
     typeof data.images.nodes[0] !== 'undefined' ? data.images.nodes[0].images : [];
   const imagesFormattedForGallery = images.map(c => {
-    const { src, srcSet, width, height, base64 } = c.image.childImageSharp.fixed;
+    const { src, srcSet, base64 } = c.image.childImageSharp.fixed;
 
     return {
       src,
       srcSet,
-      width,
-      height,
+      width: 5,
+      height: 4,
       base64,
     };
   });
+  const imagesFormattedForLightBox = images.map(c => ({
+    src: c.image.childImageSharp.fluid.src,
+    srcSet: c.image.childImageSharp.fluid.srcSet,
+  }));
 
   const [currentItem, setCurrentItem] = React.useState(0);
   const [showLightShow, setShowLightShow] = React.useState(false);
@@ -66,11 +70,11 @@ const PhotographySession = ({ data }) => {
         onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
       />
 
-      <LightShow
-        isOpen={showLightShow}
+      <LightBox
         currentImage={currentItem}
-        images={images}
-        closeLightShow={() => setShowLightShow(false)}
+        images={imagesFormattedForLightBox}
+        show={showLightShow}
+        close={() => setShowLightShow(false)}
       />
     </Layout>
   );
