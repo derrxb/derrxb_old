@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
 import { H1 } from '../components/shared';
-import LightShow from '../components/LightShow';
+import LightBox from '../components/LightBox';
 
 const About = styled.div`
   p {
@@ -31,16 +31,20 @@ const PhotographySession = ({ data }) => {
   const images =
     typeof data.images.nodes[0] !== 'undefined' ? data.images.nodes[0].images : [];
   const imagesFormattedForGallery = images.map(c => {
-    const { src, srcSet, width, height, base64 } = c.image.childImageSharp.fixed;
+    const { src, srcSet, base64 } = c.image.childImageSharp.fixed;
 
     return {
       src,
       srcSet,
-      width,
-      height,
+      width: 5,
+      height: 4,
       base64,
     };
   });
+  const imagesFormattedForLightBox = images.map(c => ({
+    src: c.image.childImageSharp.fluid.src,
+    srcSet: c.image.childImageSharp.fluid.srcSet,
+  }));
 
   const [currentItem, setCurrentItem] = React.useState(0);
   const [showLightShow, setShowLightShow] = React.useState(false);
@@ -60,28 +64,18 @@ const PhotographySession = ({ data }) => {
 
       <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
-      <div
-        style={{
-          maxWidth: '920px',
-          marginRight: 'auto',
-          marginLeft: 'auto',
-          background: 'transparent',
-        }}
-      >
-        <Gallery
-          photos={imagesFormattedForGallery}
-          renderImage={Image}
-          onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
-          style={{ width: '920px' }}
-        />
+      <Gallery
+        photos={imagesFormattedForGallery}
+        renderImage={Image}
+        onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
+      />
 
-        <LightShow
-          isOpen={showLightShow}
-          currentImage={currentItem}
-          images={images}
-          closeLightShow={() => setShowLightShow(false)}
-        />
-      </div>
+      <LightBox
+        currentImage={currentItem}
+        images={imagesFormattedForLightBox}
+        show={showLightShow}
+        close={() => setShowLightShow(false)}
+      />
     </Layout>
   );
 };
@@ -123,10 +117,10 @@ export const photographyQuery = graphql`
         images {
           image {
             childImageSharp {
-              fixed(quality: 100, height: 300) {
+              fixed(quality: 90, height: 400) {
                 ...GatsbyImageSharpFixed
               }
-              fluid(maxWidth: 2000, quality: 100) {
+              fluid(maxWidth: 2000, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
