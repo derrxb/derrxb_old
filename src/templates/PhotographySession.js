@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Gallery from 'react-photo-gallery';
+import GatsbyImage from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
 import { H1 } from '../components/shared';
 import LightBox from '../components/LightBox';
+import { Hero } from '../components/shared/Hero';
 
 const About = styled.div`
   p {
@@ -25,6 +27,8 @@ const About = styled.div`
       text-decoration: underline;
     }
   }
+
+  margin-bottom: 1em;
 `;
 
 const PhotographySession = ({ data }) => {
@@ -60,7 +64,20 @@ const PhotographySession = ({ data }) => {
         keywords={[`belize photography`, `explore belize`, data.main.frontmatter.title]}
       />
 
-      <H1>{`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}</H1>
+      <Hero
+        style={{
+          height: 'auto',
+          maxHeight: '480px',
+          overflow: 'hidden',
+          paddingBottom: '1em',
+        }}
+      >
+        <GatsbyImage fluid={data.main.frontmatter.heroImage.childImageSharp.fluid} />
+      </Hero>
+
+      <H1 style={{ textTransform: 'uppercase' }}>
+        {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
+      </H1>
 
       <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
@@ -107,6 +124,13 @@ export const photographyQuery = graphql`
         title
         path
         emoji
+        heroImage {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
 

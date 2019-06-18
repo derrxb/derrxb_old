@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Body = styled.div`
-  margin: 1em 5em;
+  margin: 0 5em 1em;
   display: flex;
   flex-direction: column;
 

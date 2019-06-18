@@ -6,7 +6,8 @@ template: photography-session
 title: Mountain Pine Ridge Forest Reserve
 type: photography-session
 emoji: 🌲
-previewImage: ./images/pine-ridge-07.jpg
+previewImage: ./images/pine-ridge-13.jpg
+heroImage: ./images/pine-ridge-hero.jpg
 ---
 
 Mountain Pine Ridge (MPR) is one of my favorite places in Belize. Hopefully these photos help you see why that's the case.
