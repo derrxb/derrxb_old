@@ -75,7 +75,9 @@ const PhotographySession = ({ data }) => {
         <GatsbyImage fluid={data.main.frontmatter.heroImage.childImageSharp.fluid} />
       </Hero>
 
-      <H1>{`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}</H1>
+      <H1 style={{ textTransform: 'uppercase' }}>
+        {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
+      </H1>
 
       <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
