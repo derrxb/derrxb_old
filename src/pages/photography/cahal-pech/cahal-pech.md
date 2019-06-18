@@ -7,6 +7,7 @@ title: Cahal Pech Maya Ruins
 type: photography-session
 emoji: ⛺️
 previewImage: ./images/cahal-pech-04.jpg
+heroImage: ./images/cahal-pech-hero.jpg
 ---
 
 For 2000 years the Ancient Maya lived in the city of Cahal Pech and its periphery. Visiting Cahal Pech made we wonder about what our story will be 2000 years from now. With these images, I wanted to capture the awe of such a thought I experienced on my visit.
