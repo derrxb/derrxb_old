@@ -9,4 +9,4 @@
   Derrxb.com
 </h1>
 
-This is my personal blog for my photography and software development. It was boostrapped using Gatsby's starter kit.
+This is my personal blog for my photography and software development. It was bootstrapped using Gatsby's starter kit.
