@@ -7,12 +7,16 @@ import NavMobile from './NavMobile';
 import NavLaptop from './NavLaptop';
 
 const HeaderNav = styled.nav`
+  position: ${({ nature }) => (nature === 'default' ? 'relative' : 'fixed')};
   margin: 0;
-  background: white;
+  background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
   height: 4.5em;
   padding: 0 5em;
   display: flex;
   align-items: center;
+  z-index: 50;
+  width: 100%;
+
   ${Media.lessThan('laptop')`
     padding: 0 1em;
   `};
@@ -20,28 +24,32 @@ const HeaderNav = styled.nav`
 
 const SiteTitle = styled(Link)`
   text-decoration: none;
-  color: #444;
+  color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   align-self: center;
   font-weight: 700;
   font-size: 1.2em;
   margin-right: auto;
 `;
 
-const Header = ({ siteTitle }) => (
-  <HeaderNav>
-    <SiteTitle to="/">{siteTitle}</SiteTitle>
+const Header = ({ siteTitle, nature }) => (
+  <HeaderNav nature={nature}>
+    <SiteTitle nature={nature} to="/">
+      {siteTitle}
+    </SiteTitle>
 
-    <NavMobile />
-    <NavLaptop />
+    <NavMobile nature={nature} />
+    <NavLaptop nature={nature} />
   </HeaderNav>
 );
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  nature: PropTypes.oneOf(['default', 'fixed']),
 };
 
 Header.defaultProps = {
   siteTitle: ``,
+  nature: 'default',
 };
 
 export default Header;

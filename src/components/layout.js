@@ -19,9 +19,9 @@ const Wrapper = styled.div`
 `;
 
 const Body = styled.div`
-  margin: 0 5em 1em;
   display: flex;
   flex-direction: column;
+  margin: ${({ margin }) => (margin ? '0 5em 1em' : '0 !important')};
 
   ${Media.lessThan('laptop')`
     margin: 1em 2.5em;
@@ -52,7 +52,7 @@ const Copyright = styled.span`
   margin-left: auto;
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, margin, footer, header }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -65,14 +65,16 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <Wrapper>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title} nature={header} />
 
-        <Body>{children}</Body>
+        <Body margin={margin}>{children}</Body>
 
-        <Footer>
-          <Copyright>hello@derrxb.com</Copyright>
-          <Copyright>© Derrick Bol</Copyright>
-        </Footer>
+        {footer && (
+          <Footer>
+            <Copyright>hello@derrxb.com</Copyright>
+            <Copyright>© Derrick Bol</Copyright>
+          </Footer>
+        )}
       </Wrapper>
     )}
   />
@@ -80,6 +82,15 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  margin: PropTypes.bool,
+  header: PropTypes.oneOf(['default', 'fixed']),
+  footer: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  margin: true,
+  footer: true,
+  header: 'default',
 };
 
 export default Layout;

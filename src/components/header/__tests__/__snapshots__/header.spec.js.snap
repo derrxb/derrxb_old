@@ -2,16 +2,17 @@
 
 exports[`Header Spec renders correctly 1`] = `
 <nav
-  className="sc-EHOje jQwEIl"
+  className="sc-EHOje fKTxvQ"
 >
   <a
     className="sc-bZQynM lnZZkT"
     href="/"
+    nature="default"
   >
     
   </a>
   <button
-    className="sc-htpNat PzwZx"
+    className="sc-htpNat kAywDC"
     onClick={[Function]}
   >
     Menu
@@ -20,32 +21,37 @@ exports[`Header Spec renders correctly 1`] = `
     className="sc-bdVaJa iORtBj"
   >
     <a
-      className="sc-bwzfXH dVvytM"
+      className="sc-bwzfXH ktfgbH"
       href="/"
+      nature="default"
     >
       Home
     </a>
     <a
-      className="sc-bwzfXH dVvytM"
-      href="/blog"
+      className="sc-bwzfXH ktfgbH"
+      href="/dev"
+      nature="default"
     >
-      Blog
+      Dev
     </a>
     <a
-      className="sc-bwzfXH dVvytM"
+      className="sc-bwzfXH ktfgbH"
       href="/photography"
+      nature="default"
     >
       Photography
     </a>
     <a
-      className="sc-bwzfXH dVvytM"
+      className="sc-bwzfXH ktfgbH"
       href="/book"
+      nature="default"
     >
       Book Session
     </a>
     <a
-      className="sc-bwzfXH dVvytM"
+      className="sc-bwzfXH ktfgbH"
       href="/about"
+      nature="default"
     >
       About
     </a>

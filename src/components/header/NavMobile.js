@@ -17,6 +17,7 @@ const MenuLauncher = styled.button`
   border: none;
   display: none;
   text-align: center;
+
   &:focus {
     outline: none;
   }
@@ -29,6 +30,7 @@ const NavDropdownHeader = styled.li`
   display: flex !important;
   align-items: center;
   background: #ffae01 !important;
+
   h4 {
     color: white;
     margin: 0;
@@ -41,6 +43,7 @@ const NavDropdownWrapper = styled.ul`
   margin: 0;
   padding: 0;
   width: 100%;
+
   li {
     display: block;
     width: 100%;
@@ -68,7 +71,7 @@ const ModalStyle = {
   },
 };
 
-const NavMobile = () => {
+const NavMobile = props => {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
@@ -86,6 +89,7 @@ const NavMobile = () => {
               style={{
                 overlay: {
                   ...ModalStyle.overlay,
+                  zIndex: '200',
                   opacity,
                 },
                 content: {
@@ -102,23 +106,33 @@ const NavMobile = () => {
                 </NavDropdownHeader>
 
                 <li>
-                  <NavOption to="/">Home</NavOption>
+                  <NavOption {...props} to="/">
+                    Home
+                  </NavOption>
                 </li>
 
                 <li>
-                  <NavOption to="/blog">Blog</NavOption>
+                  <NavOption {...props} to="/dev">
+                    Dev
+                  </NavOption>
                 </li>
 
                 <li>
-                  <NavOption to="/photography">Photography</NavOption>
+                  <NavOption {...props} to="/photography">
+                    Photography
+                  </NavOption>
                 </li>
 
                 <li>
-                  <NavOption to="/book">Book Session</NavOption>
+                  <NavOption {...props} to="/book">
+                    Book Session
+                  </NavOption>
                 </li>
 
                 <li>
-                  <NavOption to="/about">About</NavOption>
+                  <NavOption {...props} to="/about">
+                    About
+                  </NavOption>
                 </li>
               </NavDropdownWrapper>
             </Modal>
