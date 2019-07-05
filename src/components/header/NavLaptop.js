@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Media from '../shared/Media';
@@ -12,12 +13,13 @@ const NavMenu = styled.div`
 
 export const NavOption = styled(Link)`
   text-decoration: none;
-  color: #444;
+  color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   margin-right: 1em;
+
   &:hover {
-    border-bottom: 2px solid #111;
-    color: #111;
+    border-bottom: 2px solid white;
   }
+
   ${Media.lessThan('laptop')`
     width: 100%;
     height: 100%;
@@ -34,13 +36,31 @@ export const NavOption = styled(Link)`
   `};
 `;
 
-const NavLaptop = () => (
+NavOption.propTypes = {
+  nature: PropTypes.oneOf(['default', 'fixed']).isRequired,
+};
+
+const NavLaptop = props => (
   <NavMenu>
-    <NavOption to="/">Home</NavOption>
-    <NavOption to="/blog">Blog</NavOption>
-    <NavOption to="/photography">Photography</NavOption>
-    <NavOption to="/book">Book Session</NavOption>
-    <NavOption to="/about">About</NavOption>
+    <NavOption to="/" {...props}>
+      Home
+    </NavOption>
+
+    <NavOption to="/dev" {...props}>
+      Dev
+    </NavOption>
+
+    <NavOption to="/photography" {...props}>
+      Photography
+    </NavOption>
+
+    <NavOption to="/book" {...props}>
+      Book Session
+    </NavOption>
+
+    <NavOption to="/about" {...props}>
+      About
+    </NavOption>
   </NavMenu>
 );
 

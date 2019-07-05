@@ -58,7 +58,7 @@ const PhotographySession = ({ data }) => {
   };
 
   return (
-    <Layout>
+    <Layout margin footer={false}>
       <SEO
         title={`${data.main.frontmatter.emoji} ${data.main.frontmatter.title}`}
         keywords={[`belize photography`, `explore belize`, data.main.frontmatter.title]}
