@@ -7,7 +7,7 @@ import NavMobile from './NavMobile';
 import NavLaptop from './NavLaptop';
 
 const HeaderNav = styled.nav`
-  position: ${({ nature }) => (nature === 'default' ? 'relative' : 'fixed')};
+  position: ${({ nature }) => (nature === 'default' ? 'relative' : 'absolute')};
   margin: 0;
   background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
   height: 4.5em;
@@ -16,6 +16,10 @@ const HeaderNav = styled.nav`
   align-items: center;
   z-index: 50;
   width: 100%;
+
+  ${Media.greaterThan('bigMonitor')`
+    height: 9em;
+  `};
 
   ${Media.lessThan('laptop')`
     padding: 0 1em;
@@ -29,6 +33,10 @@ const SiteTitle = styled(Link)`
   font-weight: 700;
   font-size: 1.2em;
   margin-right: auto;
+
+  ${Media.greaterThan('bigMonitor')`
+    font-size: 2em;
+  `};
 `;
 
 const Header = ({ siteTitle, nature }) => (

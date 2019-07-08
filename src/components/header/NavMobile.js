@@ -106,31 +106,31 @@ const NavMobile = props => {
                 </NavDropdownHeader>
 
                 <li>
-                  <NavOption {...props} to="/">
+                  <NavOption nature="default" {...props} to="/">
                     Home
                   </NavOption>
                 </li>
 
                 <li>
-                  <NavOption {...props} to="/dev">
+                  <NavOption nature="default" {...props} to="/dev">
                     Dev
                   </NavOption>
                 </li>
 
                 <li>
-                  <NavOption {...props} to="/photography">
+                  <NavOption nature="default" {...props} to="/photography">
                     Photography
                   </NavOption>
                 </li>
 
                 <li>
-                  <NavOption {...props} to="/book">
+                  <NavOption nature="default" {...props} to="/book">
                     Book Session
                   </NavOption>
                 </li>
 
                 <li>
-                  <NavOption {...props} to="/about">
+                  <NavOption nature="default" {...props} to="/about">
                     About
                   </NavOption>
                 </li>

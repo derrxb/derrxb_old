@@ -40,7 +40,7 @@ const Title = styled(NoStyleLink)`
     padding-bottom: 1em;
   `};
 
-  ${Media.greaterThan('huge')`
+  ${Media.greaterThan('bigMonitor')`
     font-size: 4em;
   `};
 `;
@@ -91,10 +91,10 @@ const IndexPage = ({ data }) => {
     {
       ...data.photography.childImageSharp.fixed,
       width: 5,
-      height: 6,
+      height: 5.75,
       title: 'Photography',
     },
-    { ...data.software.childImageSharp.fixed, width: 5, height: 6, title: 'Software' },
+    { ...data.software.childImageSharp.fixed, width: 5, height: 5.75, title: 'Software' },
   ];
 
   return (

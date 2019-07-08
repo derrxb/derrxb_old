@@ -2,10 +2,10 @@
 
 exports[`Header Spec renders correctly 1`] = `
 <nav
-  className="sc-EHOje fKTxvQ"
+  className="sc-EHOje cFeuMf"
 >
   <a
-    className="sc-bZQynM lnZZkT"
+    className="sc-bZQynM gANFDz"
     href="/"
     nature="default"
   >
@@ -18,38 +18,38 @@ exports[`Header Spec renders correctly 1`] = `
     Menu
   </button>
   <div
-    className="sc-bdVaJa iORtBj"
+    className="sc-bdVaJa jInreJ"
   >
     <a
-      className="sc-bwzfXH ktfgbH"
+      className="sc-bwzfXH gCsFrN"
       href="/"
       nature="default"
     >
       Home
     </a>
     <a
-      className="sc-bwzfXH ktfgbH"
+      className="sc-bwzfXH gCsFrN"
       href="/dev"
       nature="default"
     >
       Dev
     </a>
     <a
-      className="sc-bwzfXH ktfgbH"
+      className="sc-bwzfXH gCsFrN"
       href="/photography"
       nature="default"
     >
       Photography
     </a>
     <a
-      className="sc-bwzfXH ktfgbH"
+      className="sc-bwzfXH gCsFrN"
       href="/book"
       nature="default"
     >
       Book Session
     </a>
     <a
-      className="sc-bwzfXH ktfgbH"
+      className="sc-bwzfXH gCsFrN"
       href="/about"
       nature="default"
     >

@@ -6,6 +6,7 @@ import Media from '../shared/Media';
 
 const NavMenu = styled.div`
   margin-left: auto;
+
   ${Media.lessThan('laptop')`
     display: none;
   `};
@@ -17,8 +18,12 @@ export const NavOption = styled(Link)`
   margin-right: 1em;
 
   &:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   }
+
+  ${Media.greaterThan('bigMonitor')`
+    font-size: 2em;
+  `};
 
   ${Media.lessThan('laptop')`
     width: 100%;
