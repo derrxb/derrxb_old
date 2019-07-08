@@ -16,10 +16,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if (node.frontmatter.template) {
       const slug = createFilePath({ node, getNode, basePath: `/pages` });
 
-      if (node.frontmatter.template === 'photography-session') {
-        // console.log(node);
-      }
-
       createNodeField({
         node,
         name: 'slug',
@@ -34,6 +30,29 @@ const getPhotographySessionName = node => {
     // eslint-disable-next-line no-unused-vars
     const [_, ...sessionName] = node.frontmatter.path;
     return sessionName.join('');
+  }
+
+  return '';
+};
+
+const templates = {
+  'photography-session': 'PhotographySession.js',
+};
+
+const getTemplatePath = item => {
+  const { template } = item.frontmatter;
+  const templatePath = './src/templates';
+
+  if (template) {
+    const templateName = templates[template];
+
+    if (templateName) {
+      return `${templatePath}/${templateName}`;
+    }
+
+    throw new Error(
+      `Could not find template for \`${template}\`. Expected \`./src/templates\` to define it.`
+    );
   }
 
   return '';
@@ -61,27 +80,18 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.frontmatter.path == null) {
-        return;
+      if (node.frontmatter.path) {
+        createPage({
+          path: node.frontmatter.path,
+          component: path.resolve(getTemplatePath(node)),
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: node.fields.slug,
+            photographySession: getPhotographySessionName(node),
+          },
+        });
       }
-
-      let template = './src/templates/';
-      if (node.frontmatter.template === 'photography-session') {
-        template += 'PhotographySession.js';
-      } else {
-        template += 'blogPost.js';
-      }
-
-      createPage({
-        path: node.frontmatter.path,
-        component: path.resolve(template),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-          photographySession: getPhotographySessionName(node),
-        },
-      });
     });
   });
 };
