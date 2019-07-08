@@ -1,14 +1,36 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Media from './Media';
 
 export const Hero = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 90vh;
+  height: ${({ nature, height }) => (nature === 'fluid' ? '90vh' : height)};
+  max-height: ${({ nature, height }) => (nature === 'fluid' ? '90vh' : height)};
   overflow: hidden;
   position: relative;
   align-content: center;
+
+  ${Media.greaterThan('bigMonitor')`
+    height: ${({ nature }) => nature === 'fixed' && 'auto'};
+    max-height: ${({ nature }) => nature === 'fixed' && 'max-content'};
+  `}
+
+  ${Media.lessThan('tablet')`
+    height: ${({ nature }) => nature === 'fixed' && 'auto'};
+    max-height: ${({ nature }) => nature === 'fixed' && 'auto'};
+  `};
 `;
+
+Hero.propTypes = {
+  nature: PropTypes.oneOf(['fluid', 'fixed']),
+};
+
+Hero.defaultProps = {
+  nature: 'fixed',
+  height: '480px',
+};
 
 export const HeroNav = styled.div`
   z-index: 10;

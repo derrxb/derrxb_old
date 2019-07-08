@@ -14,14 +14,7 @@ const About = ({ data }) => (
       title="About Me"
       keywords={['belizean photographer', 'software developer in belize']}
     />
-    <Hero
-      style={{
-        height: 'auto',
-        maxHeight: '480px',
-        overflow: 'hidden',
-        paddingBottom: '1em',
-      }}
-    >
+    <Hero>
       <Image fluid={data.about.frontmatter.heroImage.childImageSharp.fluid} />
     </Hero>
 

@@ -59,14 +59,7 @@ const PhotographySession = ({ data }) => {
         keywords={[`belize photography`, `explore belize`, data.main.frontmatter.title]}
       />
 
-      <Hero
-        style={{
-          height: 'auto',
-          maxHeight: '480px',
-          overflow: 'hidden',
-          paddingBottom: '1em',
-        }}
-      >
+      <Hero>
         <GatsbyImage fluid={data.main.frontmatter.heroImage.childImageSharp.fluid} />
       </Hero>
 
