@@ -2,23 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Hero } from '../components/shared/Hero';
-
-const AboutWrapper = styled.div`
-  a {
-    text-decoration: none;
-    color: rgb(0, 32, 66);
-    font-weight: 550;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
+import { MarkdownWrapper, H1 } from '../components/shared';
 
 const About = ({ data }) => (
   <Layout>
@@ -26,7 +14,6 @@ const About = ({ data }) => (
       title="About Me"
       keywords={['belizean photographer', 'software developer in belize']}
     />
-
     <Hero
       style={{
         height: 'auto',
@@ -38,7 +25,14 @@ const About = ({ data }) => (
       <Image fluid={data.about.frontmatter.heroImage.childImageSharp.fluid} />
     </Hero>
 
-    <AboutWrapper dangerouslySetInnerHTML={{ __html: data.about.html }} />
+    <H1>
+      Hi! I&#39;m Derr
+      <span role="img" aria-label="man using computer and camera">
+        👨‍💻📷
+      </span>
+    </H1>
+
+    <MarkdownWrapper dangerouslySetInnerHTML={{ __html: data.about.html }} />
   </Layout>
 );
 

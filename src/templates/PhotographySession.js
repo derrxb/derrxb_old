@@ -1,54 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Gallery from 'react-photo-gallery';
 import GatsbyImage from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
-import { H1 } from '../components/shared';
+import { H1, MarkdownWrapper } from '../components/shared';
 import LightBox from '../components/LightBox';
 import { Hero } from '../components/shared/Hero';
 
-const About = styled.div`
-  p {
-    line-height: 28px;
-    font-size: 1em;
-    margin: 0.5em 0 1em;
-  }
+/**
+ * Formats an Gatsby image object according to React-Gallery's requirements.
+ * @param {Object} image - A fixed Gatsby image.
+ */
+const gatsbyFixedImageForGallery = (image, width = 5, height = 4) => {
+  const { src, srcSet, base64 } = image;
 
-  a {
-    text-decoration: none;
-    color: rgb(0, 32, 66);
-    font-weight: 550;
+  return {
+    src,
+    srcSet,
+    width,
+    height,
+    base64,
+  };
+};
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  margin-bottom: 1em;
-`;
+/**
+ * Formats an Gatsby image object according to the LightBox's requirements.
+ * @param {Object} image - A fixed Gatsby image.
+ */
+const gatsbyFluidImageForLightBox = image => ({
+  src: image.src,
+  srcSet: image.srcSet,
+});
 
 const PhotographySession = ({ data }) => {
   const images =
     typeof data.images.nodes[0] !== 'undefined' ? data.images.nodes[0].images : [];
-  const imagesFormattedForGallery = images.map(c => {
-    const { src, srcSet, base64 } = c.image.childImageSharp.fixed;
-
-    return {
-      src,
-      srcSet,
-      width: 5,
-      height: 4,
-      base64,
-    };
-  });
-  const imagesFormattedForLightBox = images.map(c => ({
-    src: c.image.childImageSharp.fluid.src,
-    srcSet: c.image.childImageSharp.fluid.srcSet,
-  }));
+  const galleryImages = images.map(c =>
+    gatsbyFixedImageForGallery(c.image.childImageSharp.fixed)
+  );
+  const lightBoxImages = images.map(c =>
+    gatsbyFluidImageForLightBox(c.image.childImageSharp.fluid)
+  );
 
   const [currentItem, setCurrentItem] = React.useState(0);
   const [showLightShow, setShowLightShow] = React.useState(false);
@@ -79,17 +74,17 @@ const PhotographySession = ({ data }) => {
         {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
       </H1>
 
-      <About dangerouslySetInnerHTML={{ __html: data.main.html }} />
+      <MarkdownWrapper dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
       <Gallery
-        photos={imagesFormattedForGallery}
+        photos={galleryImages}
         renderImage={Image}
         onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
       />
 
       <LightBox
         currentImage={currentItem}
-        images={imagesFormattedForLightBox}
+        images={lightBoxImages}
         show={showLightShow}
         close={() => setShowLightShow(false)}
       />

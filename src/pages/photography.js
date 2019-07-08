@@ -6,7 +6,7 @@ import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Media from '../components/shared/Media';
-import { H1 } from '../components/shared';
+import { H1, Paragraph } from '../components/shared';
 
 export const RecentBlogsList = styled.ul`
   margin: 0;
@@ -82,10 +82,10 @@ const IndexPage = ({ data: { posts } }) => (
 
     <H1>PHOTOGRAPHY</H1>
 
-    <p>
+    <Paragraph>
       A collection of my favorite photos from various shenanigans with friends. I hope you
       enjoy these photos as much as I did taking them.
-    </p>
+    </Paragraph>
 
     {posts.nodes.map((post, index) => {
       if (index % 2 === 0) {
