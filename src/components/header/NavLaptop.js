@@ -16,6 +16,7 @@ export const NavOption = styled(Link)`
   text-decoration: none;
   color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   margin-right: 1em;
+  font-size: 1em;
 
   &:hover {
     border-bottom: 2px solid ${({ nature }) => (nature === 'default' ? '#444' : 'white')};

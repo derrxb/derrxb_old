@@ -6,7 +6,7 @@ import Media from '../shared/Media';
 import NavModal from './NavModal';
 import NavLaptop from './NavLaptop';
 
-const HeaderNav = styled.nav`
+const Nav = styled.nav`
   position: ${({ nature }) => (nature === 'default' ? 'relative' : 'absolute')};
   margin: 0;
   background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
@@ -40,14 +40,14 @@ const Title = styled(Link)`
 `;
 
 const Header = ({ siteTitle, nature, links }) => (
-  <HeaderNav nature={nature}>
+  <Nav nature={nature}>
     <Title nature={nature} to="/">
       {siteTitle}
     </Title>
 
     <NavModal nature={nature} links={links} />
     <NavLaptop nature={nature} links={links} />
-  </HeaderNav>
+  </Nav>
 );
 
 Header.propTypes = {
