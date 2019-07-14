@@ -45,28 +45,23 @@ NavOption.propTypes = {
   nature: PropTypes.oneOf(['default', 'fixed']).isRequired,
 };
 
-const NavLaptop = props => (
+const NavLaptop = ({ links, ...rest }) => (
   <NavMenu>
-    <NavOption to="/" {...props}>
-      Home
-    </NavOption>
-
-    <NavOption to="/dev" {...props}>
-      Dev
-    </NavOption>
-
-    <NavOption to="/photography" {...props}>
-      Photography
-    </NavOption>
-
-    <NavOption to="/book" {...props}>
-      Book Session
-    </NavOption>
-
-    <NavOption to="/about" {...props}>
-      About
-    </NavOption>
+    {links.map(item => (
+      <NavOption key={`${item.name}`} nature="default" {...rest} to={item.to}>
+        {item.name}
+      </NavOption>
+    ))}
   </NavMenu>
 );
+
+NavLaptop.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default NavLaptop;

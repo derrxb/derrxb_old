@@ -3,36 +3,5 @@
 exports[`NavModal Specs renders the modal on > desktop correctly 1`] = `
 <div
   className="sc-bdVaJa jInreJ"
->
-  <a
-    className="sc-bwzfXH gPnhhp"
-    href="/"
-  >
-    Home
-  </a>
-  <a
-    className="sc-bwzfXH gPnhhp"
-    href="/dev"
-  >
-    Dev
-  </a>
-  <a
-    className="sc-bwzfXH gPnhhp"
-    href="/photography"
-  >
-    Photography
-  </a>
-  <a
-    className="sc-bwzfXH gPnhhp"
-    href="/book"
-  >
-    Book Session
-  </a>
-  <a
-    className="sc-bwzfXH gPnhhp"
-    href="/about"
-  >
-    About
-  </a>
-</div>
+/>
 `;

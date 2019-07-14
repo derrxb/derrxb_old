@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import Media from '../shared/Media';
-import NavMobile from './NavMobile';
+import NavModal from './NavModal';
 import NavLaptop from './NavLaptop';
 
 const HeaderNav = styled.nav`
@@ -26,7 +26,7 @@ const HeaderNav = styled.nav`
   `};
 `;
 
-const SiteTitle = styled(Link)`
+const Title = styled(Link)`
   text-decoration: none;
   color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   align-self: center;
@@ -39,20 +39,26 @@ const SiteTitle = styled(Link)`
   `};
 `;
 
-const Header = ({ siteTitle, nature }) => (
+const Header = ({ siteTitle, nature, links }) => (
   <HeaderNav nature={nature}>
-    <SiteTitle nature={nature} to="/">
+    <Title nature={nature} to="/">
       {siteTitle}
-    </SiteTitle>
+    </Title>
 
-    <NavMobile nature={nature} />
-    <NavLaptop nature={nature} />
+    <NavModal nature={nature} links={links} />
+    <NavLaptop nature={nature} links={links} />
   </HeaderNav>
 );
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
   nature: PropTypes.oneOf(['default', 'fixed']),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 Header.defaultProps = {

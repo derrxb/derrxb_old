@@ -52,6 +52,25 @@ const Copyright = styled.span`
   margin-left: auto;
 `;
 
+const links = [
+  {
+    name: 'Dev',
+    to: '/dev',
+  },
+  {
+    name: 'Photography',
+    to: '/photography',
+  },
+  {
+    name: 'Book Session',
+    to: '/book',
+  },
+  {
+    name: 'About',
+    to: '/about',
+  },
+];
+
 const Layout = ({ children, margin, footer, header }) => (
   <StaticQuery
     query={graphql`
@@ -65,7 +84,7 @@ const Layout = ({ children, margin, footer, header }) => (
     `}
     render={data => (
       <Wrapper>
-        <Header siteTitle={data.site.siteMetadata.title} nature={header} />
+        <Header siteTitle={data.site.siteMetadata.title} nature={header} links={links} />
 
         <Body margin={margin}>{children}</Body>
 

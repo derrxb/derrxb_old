@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Spring, config } from 'react-spring/renderprops.cjs';
 import Modal from 'react-modal';
 import Media from '../shared/Media';
 import { NavOption } from './NavLaptop';
 
-const MenuLauncher = styled.button`
+const NavLauncher = styled.button`
   background: #ffae01;
   color: black;
   border-radius: 3px;
@@ -38,7 +39,7 @@ const NavDropdownHeader = styled.li`
   }
 `;
 
-const NavDropdownWrapper = styled.ul`
+const NavDropdown = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -71,12 +72,13 @@ const ModalStyle = {
   },
 };
 
-const NavMobile = props => {
+const NavModal = props => {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
     <React.Fragment>
-      <MenuLauncher onClick={() => setShowModal(!showModal)}>Menu</MenuLauncher>
+      <NavLauncher onClick={() => setShowModal(!showModal)}>Menu</NavLauncher>
+
       {showModal && (
         <Spring
           from={{ transform: 'scale(0)', opacity: 0 }}
@@ -100,41 +102,19 @@ const NavMobile = props => {
               onRequestClose={() => setShowModal(false)}
               contentLabel="Site Menu"
             >
-              <NavDropdownWrapper data-testid="menu-nav-modal">
+              <NavDropdown data-testid="menu-nav-modal">
                 <NavDropdownHeader>
                   <h4>Menu</h4>
                 </NavDropdownHeader>
 
-                <li>
-                  <NavOption nature="default" {...props} to="/">
-                    Home
-                  </NavOption>
-                </li>
-
-                <li>
-                  <NavOption nature="default" {...props} to="/dev">
-                    Dev
-                  </NavOption>
-                </li>
-
-                <li>
-                  <NavOption nature="default" {...props} to="/photography">
-                    Photography
-                  </NavOption>
-                </li>
-
-                <li>
-                  <NavOption nature="default" {...props} to="/book">
-                    Book Session
-                  </NavOption>
-                </li>
-
-                <li>
-                  <NavOption nature="default" {...props} to="/about">
-                    About
-                  </NavOption>
-                </li>
-              </NavDropdownWrapper>
+                {props.links.map(item => (
+                  <li key={`${item.name}-${item.to}`}>
+                    <NavOption nature="default" {...props} to={item.to}>
+                      {item.name}
+                    </NavOption>
+                  </li>
+                ))}
+              </NavDropdown>
             </Modal>
           )}
         </Spring>
@@ -143,4 +123,13 @@ const NavMobile = props => {
   );
 };
 
-export default NavMobile;
+NavModal.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export default NavModal;

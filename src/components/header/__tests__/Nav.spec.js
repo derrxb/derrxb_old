@@ -3,7 +3,7 @@ import 'jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 import { cleanup, render, fireEvent } from 'react-testing-library';
 import ReactModal from 'react-modal';
-import NavMobile from '../NavMobile';
+import NavModal from '../NavModal';
 import NavLaptop from '../NavLaptop';
 
 afterEach(cleanup);
@@ -13,7 +13,7 @@ ReactModal.setAppElement(document.createElement('div'));
 describe('NavModal Specs', () => {
   test('renders the menu modal on `menu` click', () => {
     // Arrange
-    const { getByTestId, getByText } = render(<NavMobile />);
+    const { getByTestId, getByText } = render(<NavModal links={[]} />);
 
     // Act
     fireEvent.click(getByText(/menu/i));
@@ -23,7 +23,7 @@ describe('NavModal Specs', () => {
   });
 
   it('renders the modal on > desktop correctly', () => {
-    const tree = renderer.create(<NavLaptop />).toJSON();
+    const tree = renderer.create(<NavLaptop links={[]} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
