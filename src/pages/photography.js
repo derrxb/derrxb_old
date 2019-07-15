@@ -35,7 +35,8 @@ const Post = styled(Link)`
     color: white;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0 0 10px 4px rgba(0, 32, 66, 0.2);
     transition: box-shadow 0.4s;
   }
