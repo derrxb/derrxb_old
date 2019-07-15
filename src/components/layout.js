@@ -5,6 +5,7 @@ import ReactModal from 'react-modal';
 import { StaticQuery, graphql } from 'gatsby';
 import Media from './shared/Media';
 import Header from './header';
+import Footer from './Footer';
 
 typeof window !== 'undefined' &&
   ReactModal.setAppElement(document.getElementById('___gatsby'));
@@ -34,22 +35,6 @@ const Body = styled.div`
   ${Media.lessThan('mobile')`
     margin: 1em 0.5em;
   `};
-`;
-
-const Footer = styled.div`
-  padding: 0 5em;
-  height: 300px;
-  display: flex;
-  margin-top: auto;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Copyright = styled.span`
-  font-weight: 700;
-  align-self: center;
-  margin-right: auto;
-  margin-left: auto;
 `;
 
 const links = [
@@ -88,12 +73,7 @@ const Layout = ({ children, margin, footer, header }) => (
 
         <Body margin={margin}>{children}</Body>
 
-        {footer && (
-          <Footer>
-            <Copyright>hello@derrxb.com</Copyright>
-            <Copyright>© Derrick Bol</Copyright>
-          </Footer>
-        )}
+        {footer && <Footer />}
       </Wrapper>
     )}
   />
