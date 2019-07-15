@@ -48,7 +48,7 @@ const links = [
   },
   {
     name: 'Book Session',
-    to: '/book',
+    to: '/contact-us',
   },
   {
     name: 'About',
