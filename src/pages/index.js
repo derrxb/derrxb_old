@@ -59,7 +59,6 @@ const Image = ({ photo, ...rest }) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        overflow: 'hidden',
       }}
     >
       {transitions.map(({ props, key }) => (
@@ -94,7 +93,12 @@ const IndexPage = ({ data }) => {
       height: 5.75,
       title: 'Photography',
     },
-    { ...data.software.childImageSharp.fixed, width: 5, height: 5.75, title: 'Software' },
+    {
+      ...data.software.childImageSharp.fixed,
+      width: 5,
+      height: 5.75,
+      title: 'Software',
+    },
   ];
 
   return (
@@ -109,7 +113,9 @@ const IndexPage = ({ data }) => {
         ]}
       />
 
-      <Gallery photos={galleryImages} renderImage={Image} />
+      <div style={{ width: '100%', background: 'black' }}>
+        <Gallery photos={galleryImages} renderImage={Image} margin={0} />
+      </div>
     </Layout>
   );
 };
