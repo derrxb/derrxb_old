@@ -140,7 +140,7 @@ const Book = () => {
         validationSchema={schema}
       >
         {({ resetForm, ...rest }) => (
-          <Form name="contact-us" data-netlify-honeypot="bot-field">
+          <Form name="contact-us" data-netlify="true" data-netlify-honeypot="bot-field">
             <H1>Feel free to reach out to us below! 🏎</H1>
 
             <UserName>
