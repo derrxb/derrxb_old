@@ -5,7 +5,6 @@
     "version": "0.1.0",
     "author": "Derrick Bol <derrickbol33@gmail.com>",
     "dependencies": {
-        "add": "^2.0.6",
         "axios": "^0.19.0",
         "babel-plugin-styled-components": "^1.10.0",
         "formik": "^1.5.8",
@@ -23,7 +22,6 @@
         "gatsby-transformer-remark": "^2.2.0",
         "gatsby-transformer-sharp": "^2.1.8",
         "prop-types": "^15.6.2",
-        "queries": "^0.1.0",
         "react": "16.9.0-alpha.0",
         "react-dom": "16.9.0-alpha.0",
         "react-helmet": "^5.2.0",
@@ -39,7 +37,6 @@
         "styled-media-query": "^2.1.1",
         "typography": "^0.16.18",
         "typography-theme-ocean-beach": "^0.16.18",
-        "yarn": "^1.17.3",
         "yup": "^0.27.0"
     },
     "keywords": [
