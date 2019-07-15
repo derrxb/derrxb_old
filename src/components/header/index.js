@@ -4,7 +4,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Media from '../shared/Media';
 import NavModal from './NavModal';
-import NavLaptop from './NavLaptop';
 
 const Nav = styled.nav`
   position: ${({ nature }) => (nature === 'default' ? 'relative' : 'absolute')};
@@ -39,14 +38,66 @@ const Title = styled(Link)`
   `};
 `;
 
-const Header = ({ siteTitle, nature, links }) => (
+const Links = styled.div`
+  margin-left: auto;
+
+  ${Media.lessThan('laptop')`
+    display: none;
+  `};
+`;
+
+export const NavOption = styled(Link)`
+  font-size: 1em;
+  color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
+  text-decoration: none;
+  margin-right: 1em;
+
+  &:hover {
+    border-bottom: 2px solid ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
+  }
+
+  ${Media.greaterThan('bigMonitor')`
+    font-size: 2em;
+  `};
+
+  ${Media.lessThan('laptop')`
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0.5em 1em;
+    color: #444;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-bottom: none;
+      text-decoration: none;
+    }
+  `};
+`;
+
+const Header = ({ siteTitle, nature, links, ...rest }) => (
   <Nav nature={nature}>
     <Title nature={nature} to="/">
       {siteTitle}
     </Title>
 
+    <Links>
+      {links.map(item => (
+        <NavOption
+          {...rest}
+          data-testid="nav-link"
+          key={`${item.name}`}
+          nature={nature}
+          to={item.to}
+        >
+          {item.name}
+        </NavOption>
+      ))}
+    </Links>
+
     <NavModal nature={nature} links={links} />
-    <NavLaptop nature={nature} links={links} />
   </Nav>
 );
 

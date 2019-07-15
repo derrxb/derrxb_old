@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { Spring, config } from 'react-spring/renderprops.cjs';
 import Modal from 'react-modal';
 import Media from '../shared/Media';
-import { NavOption } from './NavLaptop';
+import { NavOption } from './index';
 
-const NavLauncher = styled.button`
+const Menu = styled.button`
   background: #ffae01;
   color: black;
   border-radius: 3px;
@@ -41,7 +41,7 @@ const NavDropdownHeader = styled.li`
 
 const NavDropdown = styled.ul`
   list-style: none;
-  margin: 0;
+  margin: 0 0 0.5em 0;
   padding: 0;
   width: 100%;
 
@@ -77,7 +77,7 @@ const NavModal = props => {
 
   return (
     <React.Fragment>
-      <NavLauncher onClick={() => setShowModal(!showModal)}>Menu</NavLauncher>
+      <Menu onClick={() => setShowModal(!showModal)}>Menu</Menu>
 
       {showModal && (
         <Spring
@@ -109,7 +109,12 @@ const NavModal = props => {
 
                 {props.links.map(item => (
                   <li key={`${item.name}-${item.to}`}>
-                    <NavOption nature="default" {...props} to={item.to}>
+                    <NavOption
+                      {...props}
+                      nature="default"
+                      data-testid="modal-nav-link"
+                      to={item.to}
+                    >
                       {item.name}
                     </NavOption>
                   </li>
