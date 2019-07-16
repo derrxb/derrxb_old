@@ -124,7 +124,7 @@ const Book = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: values,
-      url: 'https://derrxb.netlify.com',
+      url: '/',
     };
 
     axios(options)
