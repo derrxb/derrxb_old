@@ -55,6 +55,12 @@ module.exports = {
         typeName: 'json',
       },
     },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `yaml`,
+      },
+    },
     // Image Font
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,

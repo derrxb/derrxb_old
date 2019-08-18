@@ -35,14 +35,18 @@ const gatsbyFluidImageForLightBox = image => ({
   srcSet: image.srcSet,
 });
 
-const PhotographySession = ({ data }) => {
-  const images =
-    typeof data.images.nodes[0] !== 'undefined' ? data.images.nodes[0].images : [];
+const PhotographySession = ({
+  data: {
+    allYaml: { nodes },
+  },
+  data,
+}) => {
+  const images = typeof nodes[0].images === 'undefined' ? [] : nodes[0].images;
   const galleryImages = images.map(c =>
-    gatsbyFixedImageForGallery(c.image.childImageSharp.fixed)
+    gatsbyFixedImageForGallery(c.childImageSharp.fixed)
   );
   const lightBoxImages = images.map(c =>
-    gatsbyFluidImageForLightBox(c.image.childImageSharp.fluid)
+    gatsbyFluidImageForLightBox(c.childImageSharp.fluid)
   );
 
   const [currentItem, setCurrentItem] = React.useState(0);
@@ -88,10 +92,10 @@ const PhotographySession = ({ data }) => {
 PhotographySession.propTypes = {
   data: PropTypes.shape({
     main: PropTypes.object.isRequired,
-    images: PropTypes.shape({
+    allYaml: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          image: PropTypes.arrayOf(
+          images: PropTypes.arrayOf(
             PropTypes.shape({
               childImageSharp: PropTypes.object.isRequired,
             })
@@ -122,19 +126,15 @@ export const photographyQuery = graphql`
       }
     }
 
-    images: allJson(
-      filter: { images: { elemMatch: { title: { eq: $photographySession } } } }
-    ) {
+    allYaml(filter: { name: { eq: $photographySession } }) {
       nodes {
         images {
-          image {
-            childImageSharp {
-              fixed(quality: 90, height: 400) {
-                ...GatsbyImageSharpFixed
-              }
-              fluid(maxWidth: 2000, quality: 90) {
-                ...GatsbyImageSharpFluid
-              }
+          childImageSharp {
+            fixed(quality: 90, height: 400) {
+              ...GatsbyImageSharpFixed
+            }
+            fluid(maxWidth: 2000, quality: 90) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
