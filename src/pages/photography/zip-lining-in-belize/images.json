@@ -1,0 +1,48 @@
+{
+  "images": [{
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/1.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/2.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/3.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/4.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/5.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/6.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/7.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/8.jpg"
+    },
+    {
+      "title": "zip-lining-and-waterfall-rappelling",
+      "type": "photograph-session",
+      "image": "./images/9.jpg"
+    }
+  ]
+}

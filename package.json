@@ -19,6 +19,7 @@
         "gatsby-transformer-json": "^2.1.11",
         "gatsby-transformer-remark": "^2.2.0",
         "gatsby-transformer-sharp": "^2.1.8",
+        "gatsby-transformer-yaml": "^2.2.4",
         "prop-types": "^15.6.2",
         "queries": "^0.1.0",
         "react": "16.9.0-alpha.0",
