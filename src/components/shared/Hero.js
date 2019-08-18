@@ -29,7 +29,7 @@ Hero.propTypes = {
 
 Hero.defaultProps = {
   nature: 'fixed',
-  height: '480px',
+  height: '400px',
 };
 
 export const HeroNav = styled.div`
