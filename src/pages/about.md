@@ -7,7 +7,7 @@ heroImage: ./photography/cahal-pech/images/cahal-pech-hero.jpg
 I'm a *software developer* and *photographer* based in Hsinchu, Taiwan. I build things and take pictures.
 I'm 21 years old and was born and raised in San Ignacio, Belize.
 I attended Galen University where I graduated with a Bachelor's degree in Computer Science.
-I'm currently live in Hsinchu, Taiwan as a graduate student in [NTHU's](http://nthu-en.web.nthu.edu.tw/) IMPISA program.
+I currently live in Hsinchu, Taiwan as a graduate student in [NTHU's](http://nthu-en.web.nthu.edu.tw/) IMPISA program.
 
 I work part-time at [**Belizing.com**](https://belizing.com) as a full-stack software developer.
 
