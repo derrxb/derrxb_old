@@ -13,7 +13,6 @@ const Nav = styled.nav`
   padding: 1em 5em;
   display: flex;
   align-items: center;
-  z-index: 50;
   width: 100%;
 
   ${Media.greaterThan('bigMonitor')`
