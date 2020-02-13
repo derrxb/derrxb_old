@@ -10,7 +10,7 @@ const Nav = styled.nav`
   margin: 0;
   background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
   height: 4.5em;
-  padding: 0 5em;
+  padding: 1em 5em;
   display: flex;
   align-items: center;
   z-index: 50;

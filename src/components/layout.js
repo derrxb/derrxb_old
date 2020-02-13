@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
+  min-height: 100vh;
   background: rgb(256, 256, 256);
 `;
 
@@ -23,6 +24,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   margin: ${({ margin }) => (margin ? '0 5em 1em' : '0 !important')};
+  flex-grow: 2;
 
   ${Media.lessThan('laptop')`
     margin: 1em 2.5em;
@@ -39,20 +41,20 @@ const Body = styled.div`
 
 const links = [
   {
-    name: 'Dev',
-    to: '/dev',
-  },
-  {
     name: 'Photography',
     to: '/photography',
   },
   {
-    name: 'Book Session',
-    to: '/book',
+    name: 'Software',
+    to: '/dev',
   },
   {
     name: 'About',
     to: '/about',
+  },
+  {
+    name: 'Contact',
+    to: '/book',
   },
 ];
 
