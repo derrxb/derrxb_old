@@ -14,15 +14,15 @@ import { Hero } from '../components/shared/Hero';
  * Formats an Gatsby image object according to React-Gallery's requirements.
  * @param {Object} image - A fixed Gatsby image.
  */
-const gatsbyFixedImageForGallery = (image, width = 5, height = 4) => {
-  const { src, srcSet, base64 } = image;
+const gatsbyFixedImageForGallery = image => {
+  const { src, srcSet, base64, height, width } = image;
 
   return {
     src,
     srcSet,
+    base64,
     width,
     height,
-    base64,
   };
 };
 
@@ -75,7 +75,9 @@ const PhotographySession = ({
 
       <Gallery
         photos={galleryImages}
+        // targetRowHeight={720}
         renderImage={Image}
+        limitNodeSearch={2}
         onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
       />
 
@@ -130,7 +132,7 @@ export const photographyQuery = graphql`
       nodes {
         images {
           childImageSharp {
-            fixed(quality: 90, height: 400) {
+            fixed(quality: 90, height: 900) {
               ...GatsbyImageSharpFixed
             }
             fluid(maxWidth: 2000, quality: 90) {
