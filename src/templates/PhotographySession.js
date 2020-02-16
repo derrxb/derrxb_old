@@ -67,7 +67,7 @@ const PhotographySession = ({
         <GatsbyImage fluid={data.main.frontmatter.heroImage.childImageSharp.fluid} />
       </Hero>
 
-      <H1 style={{ textTransform: 'uppercase', marginTop: '0.5em' }}>
+      <H1 style={{ textTransform: 'uppercase', marginTop: '1em' }}>
         {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
       </H1>
 

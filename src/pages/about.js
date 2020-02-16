@@ -14,12 +14,13 @@ const About = ({ data }) => (
       title="About Me"
       keywords={['belizean photographer', 'software developer in belize']}
     />
+
     <Hero>
       <Image fluid={data.about.frontmatter.heroImage.childImageSharp.fluid} />
     </Hero>
 
-    <H1>
-      Hi! I&#39;m Derr
+    <H1 style={{ marginTop: '1em' }}>
+      Hi! I&#39;m Derrick
       <span role="img" aria-label="man using computer and camera">
         👨‍💻📷
       </span>

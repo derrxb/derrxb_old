@@ -1,17 +1,11 @@
 import Typography from 'typography';
-import oceanBeachTheme from 'typography-theme-ocean-beach';
-
-const defaultFontFamily =
-  "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+import oceanBeachTheme from 'typography-theme-doelger';
 
 oceanBeachTheme.overrideStyles = options => ({
   a: {
     boxShadow: 'none',
     textDecoration: 'underline',
     fontFamily: 'inherit',
-  },
-  body: {
-    fontFamily: defaultFontFamily,
   },
   h1: { fontFamily: 'inherit' },
   h2: { fontFamily: 'inherit' },
@@ -21,6 +15,20 @@ oceanBeachTheme.overrideStyles = options => ({
   h6: { fontFamily: 'inherit' },
 });
 
-const typography = new Typography(oceanBeachTheme);
+const typography = new Typography({
+  ...oceanBeachTheme,
+  googleFonts: [
+    {
+      name: 'Oswald',
+      styles: ['300', '400', '500', '600', '700'],
+    },
+    {
+      name: 'Source Sans Pro',
+      styles: ['400', '400i', '700'],
+    },
+  ],
+  headerFontFamily: ['Oswald', 'sans-serif'],
+  bodyFontFamily: ['Source Sans Pro', 'serif'],
+});
 
 export default typography;

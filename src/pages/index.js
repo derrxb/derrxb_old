@@ -10,7 +10,7 @@ import SEO from '../components/seo';
 import Media from '../components/shared/Media';
 
 const TitleWrapper = styled(animated.div)`
-  padding-bottom: 4em;
+  padding-bottom: 5em;
   position: absolute;
   z-index: 100;
   justify-self: center;
@@ -22,7 +22,7 @@ const TitleWrapper = styled(animated.div)`
 `;
 
 const Title = styled(NoStyleLink)`
-  font-family: 'Just Another Hand' !important;
+  font-family: 'Oswald' !important;
   font-size: 3em;
   color: #fcd307;
   letter-spacing: 9px;

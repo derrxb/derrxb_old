@@ -11,6 +11,7 @@ const Nav = styled.nav`
   background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
   height: 4.5em;
   padding: 1em 5em;
+  margin-bottom: 0.5em;
   display: flex;
   align-items: center;
   width: 100%;

@@ -8,7 +8,6 @@ I'm a *software developer* and *photographer* based in Hsinchu, Taiwan. I build 
 I'm 21 years old and was born and raised in San Ignacio, Belize.
 I attended Galen University where I graduated with a Bachelor's degree in Computer Science.
 I currently live in Hsinchu, Taiwan as a graduate student in [NTHU's](http://nthu-en.web.nthu.edu.tw/) IMPISA program.
-
 I work part-time at [**Belizing.com**](https://belizing.com) as a full-stack software developer.
 
 In my free time, I like to roam to capture moments. I enjoy landscape and portrait photography. While I currently don't have any human kids, I do have a wonderful little Siamese cat, *Lola* 🐈 (I also enjoy taking pictures of her too).
