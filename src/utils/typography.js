@@ -7,12 +7,12 @@ oceanBeachTheme.overrideStyles = options => ({
     textDecoration: 'underline',
     fontFamily: 'inherit',
   },
-  h1: { fontFamily: 'inherit' },
-  h2: { fontFamily: 'inherit' },
-  h3: { fontFamily: 'inherit' },
-  h4: { fontFamily: 'inherit' },
-  h5: { fontFamily: 'inherit' },
-  h6: { fontFamily: 'inherit' },
+  h1: { fontFamily: 'Oswald' },
+  h2: { fontFamily: 'Oswald' },
+  h3: { fontFamily: 'Oswald' },
+  h4: { fontFamily: 'Oswald' },
+  h5: { fontFamily: 'Oswald' },
+  h6: { fontFamily: 'Oswald' },
 });
 
 const typography = new Typography({

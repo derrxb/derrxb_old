@@ -29,9 +29,11 @@ const Title = styled(Link)`
   text-decoration: none;
   color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   align-self: center;
-  font-weight: 700;
-  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1em;
   margin-right: auto;
+  letter-spacing: 0.06em;
 
   ${Media.greaterThan('bigMonitor')`
     font-size: 2em;
@@ -79,7 +81,7 @@ export const NavOption = styled(Link)`
 
 const Header = ({ siteTitle, nature, links, ...rest }) => (
   <Nav nature={nature}>
-    <Title nature={nature} to="/">
+    <Title nature={nature} to="/" style={{ fontFamily: 'Oswald' }}>
       {siteTitle}
     </Title>
 
