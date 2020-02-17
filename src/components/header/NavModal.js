@@ -114,6 +114,7 @@ const NavModal = props => {
                       nature="default"
                       data-testid="modal-nav-link"
                       to={item.to}
+                      style={{ marginLeft: 0 }}
                     >
                       {item.name}
                     </NavOption>

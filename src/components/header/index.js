@@ -10,7 +10,7 @@ const Nav = styled.nav`
   margin: 0;
   background: ${({ nature }) => (nature === 'default' ? 'white' : 'transparent')};
   height: 4.5em;
-  padding: 1em 5em;
+  padding: 1em 3em;
   margin-bottom: 0.5em;
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@ export const NavOption = styled(Link)`
   font-size: 1em;
   color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   text-decoration: none;
-  margin-right: 1em;
+  margin-left: 1em;
 
   &:hover {
     border-bottom: 2px solid ${({ nature }) => (nature === 'default' ? '#444' : 'white')};

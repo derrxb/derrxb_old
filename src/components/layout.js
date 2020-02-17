@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  margin: ${({ margin }) => (margin ? '0 5em 1em' : '0 !important')};
+  margin: ${({ margin }) => (margin ? '0 3em 1em' : '0 !important')};
   flex-grow: 2;
 
   ${Media.lessThan('laptop')`
