@@ -54,6 +54,11 @@ const PhotographySession = ({
   const launchLightShow = index => {
     setCurrentItem(index);
     setShowLightShow(true);
+    document.body.classList.add('fixed-for-lightshow');
+  };
+  const closeLightShow = () => {
+    setShowLightShow(false);
+    document.body.classList.remove('fixed-for-lightshow');
   };
 
   return (
@@ -85,7 +90,7 @@ const PhotographySession = ({
         currentImage={currentItem}
         images={lightBoxImages}
         show={showLightShow}
-        close={() => setShowLightShow(false)}
+        close={closeLightShow}
       />
     </Layout>
   );
