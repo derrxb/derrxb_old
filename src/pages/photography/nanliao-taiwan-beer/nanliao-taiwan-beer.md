@@ -10,6 +10,6 @@ previewImage: ./images/nanliao-11.jpg
 heroImage: ./images/nanliao-7.jpg
 ---
 
-I have an ongoing joke about being sponsered by Taiwan Beer. Hahaha Since we usually take a beer
+I have an ongoing joke about being sponsored by Taiwan Beer. Hahaha Since we usually take a beer
 whenever we go do something. We always take photos with them. Taiwan Beer is my favorite
-in Taiwan so far though. :) Also, this isn't sponsered or anything. If it was, that would be insane!
+in Taiwan so far though. :) Also, this isn't sponsored or anything. If it was, that would be insane!
