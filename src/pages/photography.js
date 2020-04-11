@@ -75,7 +75,6 @@ IndexPage.propTypes = {
 export const indexQuery = graphql`
   query {
     posts: allMarkdownRemark(
-      limit: 6
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "photography-session" } } }
     ) {

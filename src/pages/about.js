@@ -20,7 +20,7 @@ const About = ({ data }) => (
     </Hero>
 
     <H1 style={{ marginTop: '1em' }}>
-      Hi! I&#39;m Derrick
+      Hi! I&#39;m Derrick (施德睿)
       <span role="img" aria-label="man using computer and camera">
         👨‍💻📷
       </span>
