@@ -1,12 +1,5 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-<!--     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" /> -->
-  </a>
-</p>
+**Hi! I'm Derrick (施德睿)**
 
-<h1 align="center">
-  Derrxb.com
-</h1>
+I'm a software developer and a photogrrapher based in Hsinchu, Taiwan. I build things and take pictures. I'm graduate student in NTHU's IMPISA program and I'm a part of AI Lab.  Currently I'm a part-time software developer for Aillio, a coffee startup based in Taipei.
 
-This is my personal blog for my photography and software development. It was bootstrapped using Gatsby's starter kit.
+In my free time, I like to roam to capture moments. I enjoy landscape and portrait photography. While I currently don't have any human kids, I do have a wonderful little Siamese cat, Lola 🐈 (I also enjoy taking pictures of her too).
