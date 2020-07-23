@@ -45,13 +45,8 @@ const links = [
     to: '/photography',
   },
   {
-<<<<<<< HEAD
     name: 'Software',
     to: '/dev',
-=======
-    name: 'Book Session',
-    to: '/contact-us',
->>>>>>> WIP: Link form to netlify [skip ci]
   },
   {
     name: 'About',
