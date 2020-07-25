@@ -41,7 +41,7 @@ exports.handler = async event => {
     const messageAsHtml = await markdownToHtml(values.message);
     const data = {
       subject: `${values.title}`,
-      to: 'Derrick Bol <hello@derrxb.com>',
+      to: 'Derrick Bol <derrickbol33@gmail.comm>',
       from: `${name} <${JSON.parse(event.body).email}>`,
       text: values.message,
       html: messageAsHtml,
