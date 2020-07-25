@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { graphql, Link as NoStyleLink } from 'gatsby';
@@ -69,7 +70,7 @@ const Image = ({ photo, ...rest }) => {
         </TitleWrapper>
       ))}
 
-      <GatsbyImage fixed={photo} />
+      <GatsbyImage fluid={photo} />
     </div>
   );
 };
@@ -85,45 +86,68 @@ Image.propTypes = {
   }).isRequired,
 };
 
-const IndexPage = ({ data }) => {
-  const galleryImages = [
-    {
-      ...data.photography.childImageSharp.fixed,
-      width: 5,
-      height: 5.75,
-      title: 'Photography',
-    },
-    {
-      ...data.software.childImageSharp.fixed,
-      width: 5,
-      height: 5.75,
-      title: 'Software',
-    },
-  ];
+const PhotographyItemWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  background: black;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 100%;
+  align-self: center;
+  height: 100%;
+  overflow: hidden;
 
-  return (
-    <Layout header="fixed" margin={false} footer={false}>
-      <SEO
-        title="Home"
-        keywords={[
-          `belize photography`,
-          `explore belize`,
-          `software`,
-          `software development`,
-        ]}
-      />
+  ${Media.lessThan('tablet')`
+    flex-direction: column;
+    align-items: center;
+  `};
+`;
 
-      <div style={{ width: '100%', background: 'black' }}>
-        <Gallery photos={galleryImages} renderImage={Image} margin={0} />
-      </div>
-    </Layout>
-  );
-};
+const PhotoWrapper = styled.div`
+  width: 50%;
+  height: 100%;
 
-IndexPage.defaultProps = {
+  ${Media.lessThan('tablet')`
+    width: 100%;
+  `};
+`;
+
+const IndexPage = ({ data }) => (
+  <Layout header="fixed" margin={false}>
+    <SEO
+      title="Home"
+      keywords={[
+        `belize photography`,
+        `explore belize`,
+        `software`,
+        `software development`,
+      ]}
+    />
+
+    <PhotographyItemWrapper>
+      <PhotoWrapper>
+        <Image photo={data.photography.childImageSharp.fluid} />
+      </PhotoWrapper>
+
+      <PhotoWrapper>
+        <Image photo={data.software.childImageSharp.fluid} />
+      </PhotoWrapper>
+    </PhotographyItemWrapper>
+  </Layout>
+);
+
+IndexPage.propTypes = {
   data: PropTypes.shape({
-    software: PropTypes.object.isRequired,
-    photography: PropTypes.object.isRequired,
+    software: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+    }),
+    photography: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+    }),
   }).isRequired,
 };
 
@@ -131,8 +155,8 @@ export const aboutMeQuery = graphql`
   query {
     software: file(relativePath: { eq: "software-jefferson.jpeg" }) {
       childImageSharp {
-        fixed(width: 720, quality: 100) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 2000, quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -141,8 +165,8 @@ export const aboutMeQuery = graphql`
       relativePath: { eq: "photography/cahal-pech/images/cahal-pech-04.jpg" }
     ) {
       childImageSharp {
-        fixed(width: 720, quality: 100) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 2000, quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

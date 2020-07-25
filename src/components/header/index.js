@@ -15,6 +15,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   width: 100%;
+  z-index: 1000;
 
   ${Media.greaterThan('bigMonitor')`
     height: 9em;
