@@ -1,5 +1,5 @@
 ---
-date: 2019-04-15
+date: 2019-01-10
 location: Cayo, Belize
 path: /mountain-pine-ridge-forest-reserve
 template: photography-session
