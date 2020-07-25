@@ -10,6 +10,7 @@ import {
   ErrorMessage as FormikErrorMessage,
 } from 'formik';
 // import Reaptcha from 'reaptcha';
+import { navigateTo } from 'gatsby';
 import Layout from '../components/layout';
 import { H1 } from '../components/shared';
 import Media from '../components/shared/Media';
@@ -101,16 +102,14 @@ const Button = styled.button`
 const initialValues = {
   'bot-field': '',
   'form-name': 'contact',
-  firstName: '',
-  lastName: '',
+  name: '',
   email: '',
   subject: '',
   message: '',
 };
 
 const schema = object().shape({
-  firstName: string().required('Please let us know who you are'),
-  lastName: string().required('Please let us know who you are'),
+  name: string().required('Please let us know who you are'),
   email: string()
     .email('We need to know your email so we can respond to your message')
     .required('We need to know your email so we can respond to your message'),
@@ -119,22 +118,31 @@ const schema = object().shape({
 });
 
 const Book = () => {
-  const handleSubmit = values => {
+  const handleSubmit = (values, { setSubmitting, setErrors, resetForm }) => {
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: values,
-      url: '/',
+      url: '/.netlify/functions/send-email',
     };
 
     axios(options)
-      .then(() => window.console.log('form submitting'))
-      .catch(error => window.console.log(error));
+      .then(() => {
+        setSubmitting(false);
+        resetForm(initialValues);
+        navigateTo('/');
+      })
+      .catch(({ response }) => {
+        setSubmitting(false);
+        setErrors(response.data.errors);
+      });
   };
 
   return (
     <Layout>
       <Formik
+        validateOnBlur
+        validateOnChange
         onSubmit={handleSubmit}
         initialValues={initialValues}
         validationSchema={schema}
@@ -143,27 +151,24 @@ const Book = () => {
           <Form name="contact-us" data-netlify="true" data-netlify-honeypot="bot-field">
             <H1>Feel free to reach out to us below! 🏎</H1>
 
-            <UserName>
-              <Group>
-                <label htmlFor="firstName">First Name</label>
-                <Input component="input" id="firstName" name="firstName" />
-              </Group>
-
-              <Group>
-                <label htmlFor="lastName">Last Name</label>
-                <Input component="input" id="lastName" name="lastName" />
-              </Group>
-            </UserName>
             <Group>
-              <label htmlFor="email">What is your email?</label>
+              <label htmlFor="name">Name</label>
+              <Input component="input" id="name" name="Name" />
+              <ErrorMessage component="span" name="name" />
+            </Group>
+
+            <Group>
+              <label htmlFor="email">Email</label>
               <Input component="input" id="email" name="email" type="email" />
               <ErrorMessage component="span" name="email" />
             </Group>
+
             <Group>
               <label htmlFor="subject">What service are you interested in?</label>
               <Input component="input" id="subject" name="subject" />
               <ErrorMessage component="span" name="subject" />
             </Group>
+
             <Group>
               <label htmlFor="message">Can you tell us more?</label>
               <Input
