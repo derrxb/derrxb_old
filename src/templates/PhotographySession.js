@@ -11,6 +11,19 @@ import Image from '../components/image';
 import { H1, MarkdownWrapper } from '../components/shared';
 import LightBox from '../components/LightBox';
 import { Hero } from '../components/shared/Hero';
+import Media from '../components/shared/Media';
+
+const BodyWrapper = styled.div`
+  margin: 0 10em;
+
+  ${Media.lessThan('tablet')`
+    margin: 0 5em;
+  `};
+
+  ${Media.lessThan('mobile')`
+    margin: 0 2em;
+  `};
+`;
 
 const PaginationWrapper = styled.div`
   display: flex;
@@ -106,37 +119,41 @@ const PhotographySession = ({
         <GatsbyImage fluid={data.main.frontmatter.heroImage.childImageSharp.fluid} />
       </Hero>
 
-      <H1 style={{ textTransform: 'uppercase', marginTop: '1em', marginBottom: '0.5em' }}>
-        {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
-      </H1>
+      <BodyWrapper>
+        <H1
+          style={{ textTransform: 'uppercase', marginTop: '1em', marginBottom: '0.5em' }}
+        >
+          {`${data.main.frontmatter.title} ${data.main.frontmatter.emoji}`}
+        </H1>
 
-      <MarkdownWrapper dangerouslySetInnerHTML={{ __html: data.main.html }} />
+        <MarkdownWrapper dangerouslySetInnerHTML={{ __html: data.main.html }} />
 
-      <Gallery
-        photos={galleryImages}
-        // targetRowHeight={720}
-        renderImage={Image}
-        limitNodeSearch={2}
-        onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
-      />
+        <Gallery
+          photos={galleryImages}
+          // targetRowHeight={720}
+          renderImage={Image}
+          limitNodeSearch={2}
+          onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
+        />
 
-      <PaginationWrapper>
-        {pageContext.next ? (
-          <Wrapper>
-            <StyledLink to={pageContext.next ? pageContext.next.frontmatter.path : ''}>
-              Next
-            </StyledLink>
-          </Wrapper>
-        ) : null}
+        <PaginationWrapper>
+          {pageContext.next ? (
+            <Wrapper>
+              <StyledLink to={pageContext.next ? pageContext.next.frontmatter.path : ''}>
+                Next
+              </StyledLink>
+            </Wrapper>
+          ) : null}
 
-        {pageContext.prev ? (
-          <Wrapper>
-            <StyledLink to={pageContext.prev ? pageContext.prev.frontmatter.path : ''}>
-              Previous
-            </StyledLink>
-          </Wrapper>
-        ) : null}
-      </PaginationWrapper>
+          {pageContext.prev ? (
+            <Wrapper>
+              <StyledLink to={pageContext.prev ? pageContext.prev.frontmatter.path : ''}>
+                Previous
+              </StyledLink>
+            </Wrapper>
+          ) : null}
+        </PaginationWrapper>
+      </BodyWrapper>
 
       <LightBox
         currentImage={currentItem}
