@@ -14,11 +14,12 @@ const errs = {
   name: 'Please let us know who you are',
   email: 'We need your email so we can respond to your request',
   message: 'Please let us know more about your request',
-  title: 'Please let us know what type of service you are interested in.',
+  subject: 'Please let us know what type of service you are interested in.',
 };
 
 const generalSchema = Yup.object().shape({
-  title: Yup.string().required(errs.message),
+  name: Yup.string().required(errs.name),
+  subject: Yup.string().required(errs.subject),
   message: Yup.string().required(errs.message),
   email: Yup.string()
     .email(errs.email)
@@ -34,15 +35,11 @@ exports.handler = async event => {
     // Validate All values
     await getValidationSchema().validate(values);
 
-    let name = '';
-    name += values.firstName ? `${values.firstName}` : '';
-    name += values.lastName ? `${values.lastName}` : '';
-
     const messageAsHtml = await markdownToHtml(values.message);
     const data = {
-      subject: `${values.title}`,
+      subject: `${values.subject}`,
       to: 'Derrick Bol <derrickbol33@gmail.com>',
-      from: `${name} <${JSON.parse(event.body).email}>`,
+      from: `${values.name} <${values.email}>`,
       text: values.message,
       html: messageAsHtml,
     };
