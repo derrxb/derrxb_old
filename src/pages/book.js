@@ -34,7 +34,7 @@ const Group = styled.div`
   margin-bottom: 0.8em;
 
   label {
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 0.3em;
   }
 `;
@@ -58,30 +58,6 @@ const Input = styled(Field)`
 const ErrorMessage = styled(FormikErrorMessage)`
   font-size: 14px;
   color: red;
-`;
-
-/**
- * Wraps the firstName and lastName group
- */
-const UserName = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    width: 100%;
-  }
-
-  ${Media.greaterThan('tablet')`
-    flex-direction: row;
-
-    div {
-      width: 50%;
-
-      :first-child {
-        margin-right: 1em;
-      }
-    }
-  `};
 `;
 
 const Button = styled.button`

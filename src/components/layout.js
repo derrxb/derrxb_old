@@ -44,10 +44,10 @@ const links = [
     name: 'Photography',
     to: '/photography',
   },
-  {
-    name: 'Software',
-    to: '/dev',
-  },
+  // {
+  //   name: 'Software',
+  //   to: '/dev',
+  // },
   {
     name: 'About',
     to: '/about',

@@ -32,14 +32,12 @@ export const PhotographyItemWrapper = styled.div`
 
 const IndexPage = ({ data: { posts } }) => (
   <Layout>
-    <SEO title="Home" keywords={[`belize photography`, `explore belize`, `belize`]} />
-
-    <H1>PHOTOGRAPHY</H1>
-
-    <Paragraph>
-      A collection of my favorite photos from various shenanigans with friends. I hope you
-      enjoy these photos as much as I did taking them.
-    </Paragraph>
+    <SEO
+      title="Home"
+      keywords={[`belize photography`, `explore belize`, `belize`]}
+      description="A collection of my favorite photos from various shenanigans with friends. I hope you
+      enjoy these photos as much as I did taking them."
+    />
 
     <PhotographyItemWrapper>
       {posts.nodes.map(post => (

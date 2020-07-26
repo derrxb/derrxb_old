@@ -4,7 +4,6 @@ import React from 'react';
 import { graphql, Link as NoStyleLink } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import styled from 'styled-components';
-import Gallery from 'react-photo-gallery';
 import { useTransition, animated } from 'react-spring';
 import Layout from '../components/layout';
 import SEO from '../components/seo';

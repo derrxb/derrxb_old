@@ -50,10 +50,13 @@ const Links = styled.div`
 `;
 
 export const NavOption = styled(Link)`
+  font-family: 'Oswald' !important;
   font-size: 1em;
+  font-weight: 300;
   color: ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
   text-decoration: none;
   margin-left: 1em;
+  letter-spacing: 0.1em;
 
   &:hover {
     border-bottom: 2px solid ${({ nature }) => (nature === 'default' ? '#444' : 'white')};
