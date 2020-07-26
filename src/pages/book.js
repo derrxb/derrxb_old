@@ -153,7 +153,7 @@ const Book = () => {
 
             <Group>
               <label htmlFor="name">Name</label>
-              <Input component="input" id="name" name="Name" />
+              <Input component="input" id="name" name="name" />
               <ErrorMessage component="span" name="name" />
             </Group>
 
