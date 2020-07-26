@@ -140,7 +140,7 @@ const PhotographySession = ({
           {pageContext.next ? (
             <Wrapper>
               <StyledLink to={pageContext.next ? pageContext.next.frontmatter.path : ''}>
-                Next
+                Previous
               </StyledLink>
             </Wrapper>
           ) : null}
@@ -148,7 +148,7 @@ const PhotographySession = ({
           {pageContext.prev ? (
             <Wrapper>
               <StyledLink to={pageContext.prev ? pageContext.prev.frontmatter.path : ''}>
-                Previous
+                Next
               </StyledLink>
             </Wrapper>
           ) : null}
