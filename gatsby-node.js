@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // **Note:** The graphql function call returns a Promise
   await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
         edges {
           node {
             frontmatter {
@@ -79,19 +79,42 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.frontmatter.path) {
-        createPage({
-          path: node.frontmatter.path,
-          component: path.resolve(getTemplatePath(node)),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.fields.slug,
-            photographySession: getPhotographySessionName(node),
-          },
-        });
-      }
+    const stories = result.data.allMarkdownRemark.edges.filter(
+      ({ node }) =>
+        node.frontmatter.path && node.frontmatter.template === 'photography-session'
+    );
+
+    const others = result.data.allMarkdownRemark.edges.filter(
+      ({ node }) =>
+        node.frontmatter.path && node.frontmatter.template !== 'photography-session'
+    );
+
+    stories.forEach(({ node }, index) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: path.resolve(getTemplatePath(node)),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.fields.slug,
+          photographySession: getPhotographySessionName(node),
+          prev: index === 0 ? null : stories[index - 1].node,
+          next: index === stories.length - 1 ? null : stories[index + 1].node,
+        },
+      });
+    });
+
+    others.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: path.resolve(getTemplatePath(node)),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.fields.slug,
+          photographySession: getPhotographySessionName(node),
+        },
+      });
     });
   });
 };

@@ -1,14 +1,47 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Gallery from 'react-photo-gallery';
 import GatsbyImage from 'gatsby-image';
+import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from '../components/image';
 import { H1, MarkdownWrapper } from '../components/shared';
 import LightBox from '../components/LightBox';
 import { Hero } from '../components/shared/Hero';
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  margin: 0em 0 1em 0;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  font-family: 'Oswald' !important;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: none;
+  background: none;
+  color: rgb(136, 136, 136);
+  text-decoration: none;
+  padding: 1em;
+
+  &:hover {
+    color: rgb(2, 2, 2);
+  }
+`;
 
 /**
  * Formats an Gatsby image object according to React-Gallery's requirements.
@@ -40,6 +73,7 @@ const PhotographySession = ({
     allYaml: { nodes },
   },
   data,
+  pageContext,
 }) => {
   const images = typeof nodes[0].images === 'undefined' ? [] : nodes[0].images;
   const galleryImages = images.map(c =>
@@ -86,6 +120,24 @@ const PhotographySession = ({
         onClick={(_, selectedItem) => launchLightShow(selectedItem.index)}
       />
 
+      <PaginationWrapper>
+        {pageContext.next ? (
+          <Wrapper>
+            <StyledLink to={pageContext.next ? pageContext.next.frontmatter.path : ''}>
+              Next
+            </StyledLink>
+          </Wrapper>
+        ) : null}
+
+        {pageContext.prev ? (
+          <Wrapper>
+            <StyledLink to={pageContext.prev ? pageContext.prev.frontmatter.path : ''}>
+              Previous
+            </StyledLink>
+          </Wrapper>
+        ) : null}
+      </PaginationWrapper>
+
       <LightBox
         currentImage={currentItem}
         images={lightBoxImages}
@@ -111,6 +163,25 @@ PhotographySession.propTypes = {
       ),
     }).isRequired,
   }).isRequired,
+  pageContext: PropTypes.shape({
+    prev: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        path: PropTypes.string.isRequired,
+      }),
+    }),
+    next: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        path: PropTypes.string.isRequired,
+      }),
+    }),
+  }),
+};
+
+PhotographySession.defaultProps = {
+  pageContext: {
+    prev: null,
+    next: null,
+  },
 };
 
 export const photographyQuery = graphql`
