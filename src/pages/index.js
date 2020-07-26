@@ -10,14 +10,14 @@ import SEO from '../components/seo';
 import Media from '../components/shared/Media';
 
 const TitleWrapper = styled(animated.div)`
-  padding-bottom: 5em;
+  padding-bottom: 8em;
   position: absolute;
   z-index: 100;
   justify-self: center;
   align-self: center;
 
   ${Media.lessThan('tablet')`
-    padding-bottom: 1em;
+    padding-bottom: 4em;
   `};
 `;
 
@@ -59,12 +59,13 @@ const Image = ({ photo, ...rest }) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
+        overflow: 'hidden',
       }}
     >
       {transitions.map(({ props, key }) => (
         <TitleWrapper key={key} style={props}>
-          <Title to={photo.title === 'Photography' ? '/photography' : '/software'}>
-            {photo.title}
+          <Title to={rest.title === 'Stories' ? '/photography' : '/software'}>
+            {rest.title}
           </Title>
         </TitleWrapper>
       ))}
@@ -125,11 +126,11 @@ const IndexPage = ({ data }) => (
 
     <PhotographyItemWrapper>
       <PhotoWrapper>
-        <Image photo={data.photography.childImageSharp.fluid} />
+        <Image title="Stories" photo={data.photography.childImageSharp.fluid} />
       </PhotoWrapper>
 
       <PhotoWrapper>
-        <Image photo={data.software.childImageSharp.fluid} />
+        <Image title="Software" photo={data.software.childImageSharp.fluid} />
       </PhotoWrapper>
     </PhotographyItemWrapper>
   </Layout>
@@ -154,7 +155,7 @@ export const aboutMeQuery = graphql`
   query {
     software: file(relativePath: { eq: "software-jefferson.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, quality: 100) {
+        fluid(maxWidth: 2000, maxHeight: 2400, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -164,7 +165,7 @@ export const aboutMeQuery = graphql`
       relativePath: { eq: "photography/cahal-pech/images/cahal-pech-04.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 2000, quality: 100) {
+        fluid(maxWidth: 2000, maxHeight: 2400, quality: 80) {
           ...GatsbyImageSharpFluid
         }
       }
