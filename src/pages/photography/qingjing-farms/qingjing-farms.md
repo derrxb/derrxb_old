@@ -1,7 +1,7 @@
 ---
 date: 2020-06-15
 location: Qingjing Farm, Nantou Country
-path: /nantou-country-taiwan
+path: /nantou-county-taiwan
 template: photography-session
 title: Exploring Qingjing Farm in Nantou County, Taiwan
 type: photography-session
