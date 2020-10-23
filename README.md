@@ -12,6 +12,6 @@ You can find me online on my handle ***@derrxb***. But here are a few links that
 
 你好，我是施德睿。
 
-我住了台灣新竹市。我是軟件工程師和攝影師。我是清大學生。
+我住在台灣新竹市。我是軟件工程師和攝影師。我是清大學生。
 
 有空的時後，我喜歡旅行，照相，和看電影。
