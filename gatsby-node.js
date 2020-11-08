@@ -70,6 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               path
               template
+              title
             }
             fields {
               slug
