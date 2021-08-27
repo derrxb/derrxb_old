@@ -9,9 +9,3 @@ You can find me online on my handle ***@derrxb***. But here are a few links that
 > * [Instagram](https://instagram.com/derrxb) - photos, photos, and more photos 😉
 > * [GitHub](https://github.com/derrxb) [Here] - Projects I'm currently working on
 > * [Derrxb.com](https://derrxb.com) - My personal website for my travels and (hopefully) software development thoughts
-
-你好，我是施德睿。
-
-我住在台灣新竹市。我是軟件工程師和攝影師。我是清大學生。
-
-有空的時後，我喜歡旅行，照相，和看電影。
